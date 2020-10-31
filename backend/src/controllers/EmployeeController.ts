@@ -28,6 +28,7 @@ export default {
       jsonParam: {
         message: "SUCCESS",
         params: {
+          id: employee.id,
           name: employee.name,
           last_name: employee.last_name,
           role: role.name,
