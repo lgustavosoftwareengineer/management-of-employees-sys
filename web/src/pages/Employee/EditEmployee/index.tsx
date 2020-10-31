@@ -10,7 +10,7 @@ interface Employee {
   last_name: string;
   birth_date: string;
   salary: number;
-  role_id: number;
+  role: string;
 }
 
 interface Role {
@@ -30,6 +30,7 @@ export default function EditEmployee() {
   const [employee, setEmployee] = useState<Employee>();
   const [name, setName] = useState<string>();
   const [last_name, setLastName] = useState<string>();
+  const [role, setRole] = useState<string>();
   const [role_id, setRoleId] = useState<number>();
   const [birth_date, setBirthDate] = useState<string>();
   const [salary, setSalary] = useState<number>();
@@ -43,24 +44,48 @@ export default function EditEmployee() {
     api.get("roles/v1").then((response) => {
       setRoles(response.data.data.role);
     });
-  }, [params.id, roles, employee]);
+  }, [params.id]);
 
   if (!employee) {
     return <p>Carregando ...</p>;
+  }
+
+  async function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    const data = {
+      name,
+      last_name,
+      role_id,
+      birth_date,
+      salary,
+    };
+    console.log(data);
+    setName(employee?.name);
+    setLastName(employee?.last_name);
+    setRole(employee?.role);
+    setBirthDate(employee?.birth_date);
+    await api.put(`employees/v1/${params.id}`, data);
+    setSalary(employee?.salary);
+
+    alert("Dados editados com sucesso");
+
+    history.push("/employees");
   }
 
   return (
     <div id="page-create-orphanage">
       <Sidebar />
       <main>
-        <form className="create-orphanage-form">
+        <form onSubmit={handleSubmit} className="create-orphanage-form">
           <fieldset>
-            <legend>Edite um Funcionário</legend>
+            <legend>Crie um funcionário</legend>
 
             <div className="input-block">
-              <label htmlFor="name">Nome do cargo</label>
+              <label htmlFor="name">Nome</label>
               <input
                 id="name"
+                value={name}
                 defaultValue={employee.name}
                 onChange={(event) => setName(event.target.value)}
               />
@@ -72,9 +97,11 @@ export default function EditEmployee() {
                 id="last_name"
                 value={last_name}
                 defaultValue={employee.last_name}
+                placeholder={"Digite aqui sobrenome do funcionário..."}
                 onChange={(event) => setLastName(event.target.value)}
               />
             </div>
+
             <div className="input-block">
               <label htmlFor="birth_date">Data de nascimento</label>
               <input
@@ -87,28 +114,32 @@ export default function EditEmployee() {
           </fieldset>
 
           <div className="input-block">
+            {console.log(role, role_id)}
+
             <select
               className="custom-select m3"
               id="inputGroupSelect01"
-              defaultValue={employee.role_id}
+              defaultValue={employee.role}
               onChange={(event) => {
-                setRoleId(Number(event.target.value));
-                console.log(role_id);
+                setRoleId(Number(event.target.value.split(":")[0]));
+                setRole(String(event.target.value.split(":")[1]));
               }}
             >
-              <option defaultValue="Clique aqui para escolher o cargo" hidden>
-                Clique aqui para escolher o cargo
+              <option defaultValue={role} hidden>
+                {role}
               </option>
               {roles ? (
                 roles.map((role) => {
                   return (
                     <>
-                      <option value={role.id}>{role.name}</option>
+                      <option key={role.id} value={`${role.id}:${role.name}`}>
+                        {role.name}
+                      </option>
                     </>
                   );
                 })
               ) : (
-                <div></div>
+                <option></option>
               )}
             </select>
           </div>
@@ -125,6 +156,7 @@ export default function EditEmployee() {
                 id="salary"
                 value={salary}
                 defaultValue={employee.salary}
+                type="number"
                 onChange={(event) => setSalary(Number(event.target.value))}
               />
             </div>
