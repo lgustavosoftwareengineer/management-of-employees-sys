@@ -81,6 +81,14 @@ export default function ListAllEmployees() {
                       >
                         Editar funcionário
                       </button>
+
+                      <button
+                        onClick={() => {
+                          history.push(`/employee/${employee.id}`);
+                        }}
+                      >
+                        Ver detalhes do funcionário
+                      </button>
                       <button
                         onClick={() => {
                           handlerDeleteEmployee(employee.id);
