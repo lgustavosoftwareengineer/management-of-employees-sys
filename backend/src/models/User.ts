@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import { uuid } from 'uuidv4';
 
-class Users {
+class User {
   // id
   id: string;
 
@@ -14,7 +14,7 @@ class Users {
   // senha
   birth_date: string;
 
-  job_post: string;
+  role_id: number;
 
   salary: number;
 
@@ -22,15 +22,15 @@ class Users {
     name,
     last_name,
     birth_date,
-    job_post,
+    role_id,
     salary,
-  }: Omit<Users, 'id'>) {
+  }: Omit<User, 'id'>) {
     this.id = uuid();
     this.name = name;
     this.last_name = last_name;
     this.birth_date = birth_date;
-    this.job_post = job_post;
+    this.role_id = role_id;
     this.salary = salary;
   }
 }
-export default Users;
+export default User;

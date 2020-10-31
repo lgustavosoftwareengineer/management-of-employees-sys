@@ -10,5 +10,5 @@ app.use(express.json());
 app.use(routes);
 
 app.listen(1919, () => {
-  console.log(colors.blue(`Server it's running!! In port 1919! 😎`));
+  console.log(colors.blue(`Server it's running!! In port 1919!`));
 });

@@ -1,10 +1,10 @@
 /* eslint-disable camelcase */
-import User from '../models/Users';
+import User from '../models/User';
 
 interface CreateUserDTO {
   name: string;
   last_name: string;
-  job_post: string;
+  role_id: number;
   birth_date: string;
   salary: number;
 }
@@ -18,7 +18,7 @@ interface UpdateUserDTO {
   theChange?: string;
   name?: string;
   last_name?: string;
-  job_post?: string;
+  role_id?: number;
   birth_date?: string;
   salary?: number;
 }
@@ -36,11 +36,11 @@ class UserRepository {
   public create({
     name,
     last_name,
-    job_post,
+    role_id,
     birth_date,
     salary,
   }: CreateUserDTO): User {
-    const user = new User({ name, last_name, job_post, birth_date, salary });
+    const user = new User({ name, last_name, role_id, birth_date, salary });
 
     this.users.push(user);
 
@@ -70,7 +70,7 @@ class UserRepository {
     theChange = '',
     name = '',
     last_name = '',
-    job_post = '',
+    role_id = 0,
     birth_date = '',
     salary = 0,
   }: UpdateUserDTO): User {
@@ -85,8 +85,8 @@ class UserRepository {
         userUpdated.last_name = last_name;
         return userUpdated;
       }
-      if (theChange.toLowerCase() === 'job_post') {
-        userUpdated.job_post = job_post;
+      if (theChange.toLowerCase() === 'role_id') {
+        userUpdated.role_id = role_id;
         return userUpdated;
       }
 
@@ -103,7 +103,7 @@ class UserRepository {
       userUpdated.birth_date = birth_date;
       userUpdated.name = name;
       userUpdated.last_name = last_name;
-      userUpdated.job_post = job_post;
+      userUpdated.role_id = role_id;
       userUpdated.salary = salary;
 
       return userUpdated;

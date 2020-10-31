@@ -25,12 +25,12 @@ userRouter.get('/v1/:id', (request, response) => {
 
 userRouter.post('/v1/', (request, response) => {
   try {
-    const { name, last_name, job_post, birth_date, salary } = request.body;
+    const { name, last_name, role_id, birth_date, salary } = request.body;
     const createUserService = new CreateUsersService(usersRepository);
     const user = createUserService.execute({
       name,
       last_name,
-      job_post,
+      role_id,
       birth_date,
       salary,
     });
@@ -52,7 +52,7 @@ userRouter.post('/v1/', (request, response) => {
 // eslint-disable-next-line consistent-return
 userRouter.put('/v1/:id', (request, response) => {
   const { id } = request.params;
-  const { name, last_name, job_post, birth_date } = request.body;
+  const { name, last_name, role_id, birth_date } = request.body;
 
   if (name) {
     try {
@@ -86,9 +86,9 @@ userRouter.put('/v1/:id', (request, response) => {
       });
     }
   }
-  if (job_post) {
+  if (role_id) {
     try {
-      usersRepository.update({ id, job_post, theChange: 'job_post, ' });
+      usersRepository.update({ id, role_id, theChange: 'role_id, ' });
       return dump({
         codeParam: 200,
         jsonParam: usersRepository.findByID({ id }),

@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
-import User from '../models/Users'; // Importo para a minha classe saber qual a estrutura de um usuário
+import User from '../models/User'; // Importo para a minha classe saber qual a estrutura de um usuário
 import UserRepository from '../repositories/UsersRepository'; // Importo para a minha classe saber o que eu devo fazer como  meu usuário
 
 interface CreateUserDTO {
   name: string;
   last_name: string;
-  job_post: string;
+  role_id: number;
   birth_date: string;
   salary: number;
 }
@@ -20,7 +20,7 @@ class CreateUserService {
   public execute({
     name,
     last_name,
-    job_post,
+    role_id,
     birth_date,
     salary,
   }: CreateUserDTO): User {
@@ -31,7 +31,7 @@ class CreateUserService {
     const user = this.usersRepository.create({
       name,
       last_name,
-      job_post,
+      role_id,
       birth_date,
       salary,
     });
