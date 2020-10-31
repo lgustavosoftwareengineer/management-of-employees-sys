@@ -34,15 +34,15 @@ export default function Orphanage() {
   const [orphanage, setOrphanage] = useState<Orphanage>();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
-  useEffect(() => {
-    api.get(`orphanages/${params.id}`).then((response) => {
-      setOrphanage(response.data);
-    });
-  }, [params.id]);
+  // useEffect(() => {
+  //   api.get(`orphanages/${params.id}`).then((response) => {
+  //     setOrphanage(response.data);
+  //   });
+  // }, [params.id]);
 
-  if (!orphanage) {
-    return <p>Carregando ...</p>;
-  }
+  // if (!orphanage) {
+  //   return <p>Carregando ...</p>;
+  // }
 
   return (
     <div id="page-orphanage">
@@ -50,12 +50,12 @@ export default function Orphanage() {
 
       <main>
         <div className="orphanage-details">
-          <img
+          {/* <img
             src={orphanage.images[activeImageIndex].url}
             alt={orphanage.name}
-          />
+          /> */}
 
-          <div className="images">
+          {/* <div className="images">
             {orphanage.images.map((image, index) => {
               return (
                 <button
@@ -70,13 +70,13 @@ export default function Orphanage() {
                 </button>
               );
             })}
-          </div>
+          </div> */}
 
           <div className="orphanage-details-content">
-            <h1>{orphanage.name}</h1>
-            <p>{orphanage.about}</p>
+            <h1>Nome teste</h1>
+            <p>Seja bem vindo ao meu teste</p>
 
-            <div className="map-container">
+            {/* <div className="map-container">
               <Map
                 center={[orphanage.latitude, orphanage.longitude]}
                 zoom={16}
@@ -104,32 +104,31 @@ export default function Orphanage() {
                   Ver rotas no Google Maps
                 </a>
               </footer>
-            </div>
+            </div> */}
 
             <hr />
 
             <h2>Instruções para visita</h2>
-            <p>{orphanage.instructions}</p>
+            <p>Aqui estão as instruções</p>
 
             <div className="open-details">
               <div className="hour">
                 <FiClock size={32} color="#15B6D6" />
                 Segunda à Sexta <br />
-                {orphanage.opening_hours}
+                Abre às 8h
               </div>
-              {orphanage.open_on_weekends ? (
-                <div className="open-on-weekends">
-                  <FiInfo size={32} color="#39CC83" />
-                  Atendemos <br />
-                  fim de semana
-                </div>
-              ) : (
-                <div className="open-on-weekends dont-open">
-                  <FiInfo size={32} color="#FF669D" />
-                  Não atendemos <br />
-                  fim de semana
-                </div>
-              )}
+
+              <div className="open-on-weekends">
+                <FiInfo size={32} color="#39CC83" />
+                Atendemos <br />
+                fim de semana
+              </div>
+
+              {/* <div className="open-on-weekends dont-open">
+                <FiInfo size={32} color="#FF669D" />
+                Não atendemos <br />
+                fim de semana
+              </div> */}
             </div>
 
             {/*<button type="button" className="contact-button">

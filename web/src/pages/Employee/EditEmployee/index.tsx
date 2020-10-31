@@ -2,12 +2,12 @@ import React from "react";
 
 import { Container } from "./styles";
 
-const CreateEmployee: React.FC = () => {
+const EditEmployee: React.FC = () => {
   return (
     <Container>
-      <h1>CreateEmployee</h1>
+      <h1>EditEmployee</h1>
     </Container>
   );
 };
 
-export default CreateEmployee;
+export default EditEmployee;

@@ -1,10 +1,23 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Landing from "./pages/Landing";
-import OrphanagesMap from "./pages/OrphanagesMap";
 import Orphanage from "./pages/Orphanage";
-import CreateOrphanage from "./pages/CreateOrphanage";
+
+import Landing from "./pages/Landing";
+/* GET PAGES */
+import ListAllEmployees from "./pages/Employee/ListAllEmployees";
+import ListAllRoles from "./pages/Role/ListAllRoles";
+
+import EmployeeDetails from "./pages/Employee/EmployeeDetails";
+import RoleDetails from "./pages/Role/RoleDetails";
+
+/* POST PAGES */
+import CreateEmployee from "./pages/Employee/CreateEmployee";
+import CreateRole from "./pages/Role/CreateRole";
+
+/* DELETE PAGES */
+import EditEmployee from "./pages/Employee/EditEmployee";
+import EditRole from "./pages/Role/RoleDetails";
 
 /**
  * Terá 6 páginas:
@@ -19,20 +32,42 @@ import CreateOrphanage from "./pages/CreateOrphanage";
  * 3 - Editar a descrição de um cargo (descrição)
  */
 
+/**
+ * Páginas que tem que ser criadas:
+ * Página com toda a lista dos empregados
+ * Página com toda a lista de cargos
+ *
+ * Página de criação de um empregado
+ * Página de criação de um cargo
+ *
+ * Página de edição de um empregado
+ * Página de edição de um cargo
+ *
+ * Página de visualização de um empregado
+ * Página de edição de um empregado
+ *
+ * Função de excluir um empregado
+ * Função de excluir um cargo
+ *
+ *
+ */
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" exact component={CreateOrphanage} />
-        <Route path="/app" component={OrphanagesMap} />
+        <Route path="/" exact component={Landing} />
+        {/* <Route path="/app" component={OrphanagesMap} /> */}
+        <Route path="/orphanage" component={Orphanage} />
 
-        <Route path="/employee/create" component={Landing} />
-        <Route path="/employee/:id" component={Orphanage} />
-        <Route path="/employee-edit/:id" component={Orphanage} />
+        <Route path="/employee/create" component={CreateEmployee} />
+        <Route path="/employee/:id" component={EmployeeDetails} />
+        <Route path="/employee-edit/:id" component={EditEmployee} />
+        <Route path="/employees" component={ListAllEmployees} />
 
-        <Route path="/role/create" component={Landing} />
-        <Route path="/role/:id" component={Orphanage} />
-        <Route path="/role-edit/:id" component={Orphanage} />
+        <Route path="/role/create" component={CreateRole} />
+        <Route path="/role/:id" component={RoleDetails} />
+        <Route path="/role-edit/:id" component={RoleDetails} />
+        <Route path="/roles" component={ListAllRoles} />
       </Switch>
     </BrowserRouter>
   );
