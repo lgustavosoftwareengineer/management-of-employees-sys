@@ -1,28 +1,46 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { useHistory } from "react-router-dom";
+import React, { FormEvent, useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
 
-// import { FiPlus } from "react-icons/fi";
-
-import "./styles.css";
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
 
-export default function CreateRole() {
+interface Role {
+  id: number;
+  name: string;
+  description: string;
+}
+
+interface RoleParams {
+  id: string;
+}
+
+export default function EditRole() {
   const history = useHistory();
 
+  const params = useParams<RoleParams>();
+  const [role, setRole] = useState<Role>();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
-  // /** HANDLERS */
+  useEffect(() => {
+    api.get(`roles/v1/${params.id}`).then((response) => {
+      setRole(response.data.data.role);
+    });
+  }, []);
+
+  if (!role) {
+    return <p>Carregando ...</p>;
+  }
+
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
     const data = { name, description };
     console.log(data);
 
-    await api.post("roles/v1/", data);
+    await api.put(`roles/v1/${params.id}`, data);
 
-    alert('Cadastro realizado com sucesso"');
+    alert("Dados editados com sucesso");
 
     history.push("/roles");
   }
@@ -31,7 +49,7 @@ export default function CreateRole() {
     <div id="page-create-orphanage">
       <Sidebar />
       <main>
-        <form onSubmit={handleSubmit} className="create-orphanage-form">
+        <form className="create-orphanage-form" onSubmit={handleSubmit}>
           <fieldset>
             <legend>Crie um cargo</legend>
 
@@ -58,7 +76,7 @@ export default function CreateRole() {
               <label htmlFor="name">Nome do cargo</label>
               <input
                 id="name"
-                value={name}
+                defaultValue={role.name}
                 onChange={(event) => setName(event.target.value)}
               />
             </div>
@@ -67,8 +85,10 @@ export default function CreateRole() {
               <label htmlFor="description">Descrição do cargo</label>
               <textarea
                 id="description"
-                value={description}
+                defaultValue={role.description}
                 onChange={(event) => setDescription(event.target.value)}
+                contentEditable={"true"}
+                suppressContentEditableWarning={true}
               />
             </div>
           </fieldset>
@@ -81,5 +101,3 @@ export default function CreateRole() {
     </div>
   );
 }
-
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;

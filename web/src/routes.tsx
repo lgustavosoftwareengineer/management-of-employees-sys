@@ -7,9 +7,7 @@ import Landing from "./pages/Landing";
 /* GET PAGES */
 import ListAllEmployees from "./pages/Employee/ListAllEmployees";
 import ListAllRoles from "./pages/Role/ListAllRoles";
-
 import EmployeeDetails from "./pages/Employee/EmployeeDetails";
-import RoleDetails from "./pages/Role/RoleDetails";
 
 /* POST PAGES */
 import CreateEmployee from "./pages/Employee/CreateEmployee";
@@ -17,7 +15,7 @@ import CreateRole from "./pages/Role/CreateRole";
 
 /* DELETE PAGES */
 import EditEmployee from "./pages/Employee/EditEmployee";
-import EditRole from "./pages/Role/RoleDetails";
+import EditRole from "./pages/Role/EditRole/";
 
 /**
  * Terá 6 páginas:
@@ -61,12 +59,12 @@ function Routes() {
 
         <Route path="/employee/create" component={CreateEmployee} />
         <Route path="/employee/:id" component={EmployeeDetails} />
-        <Route path="/employee-edit/:id" component={EditEmployee} />
+        <Route path="/employee/edit/:id" component={EditEmployee} />
         <Route path="/employees" component={ListAllEmployees} />
 
         <Route path="/role/create" component={CreateRole} />
-        <Route path="/role/:id" component={RoleDetails} />
-        <Route path="/role-edit/:id" component={RoleDetails} />
+        {/* <Route path="/role/:id" component={RoleDetails} /> */}
+        <Route path="/role/edit/:id" exact component={EditRole} />
         <Route path="/roles" component={ListAllRoles} />
       </Switch>
     </BrowserRouter>

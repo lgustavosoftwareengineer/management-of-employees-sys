@@ -1,14 +1,21 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-console */
-import express from 'express';
-import colors from 'colors';
-import routes from './routes/index';
+import express from "express";
+import path from "path";
+import cors from "cors";
+
+import "express-async-errors";
+
+import "./database/connection";
+
+import routes from "./routes";
+import errorHandler from "./errors/handler";
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(routes);
+app.use(errorHandler);
 
 app.listen(1919, () => {
-  console.log(colors.blue(`Server it's running!! In port 1919!`));
+  console.log("The server is running!");
 });

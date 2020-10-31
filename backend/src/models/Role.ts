@@ -1,17 +1,15 @@
 /* eslint-disable camelcase */
-import { uuid } from 'uuidv4';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity('roles')
 class Role {
-  id: string;
+  @PrimaryGeneratedColumn('increment')
+  id: number;
 
+  @Column()
   name: string;
 
+  @Column()
   description: string;
-
-  constructor({ name, description }: Omit<Role, 'id'>) {
-    this.id = uuid();
-    this.name = name;
-    this.description = description;
-  }
 }
 export default Role;

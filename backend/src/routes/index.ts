@@ -1,11 +1,11 @@
-import { Router } from 'express';
-import userRouter from './users.routes';
-import roleRouter from './roles.routes';
+import { Router } from "express";
+import employeesRouter from "./employees.routes";
+import rolesRouter from "./roles.routes";
 
 const routes = Router();
 
-// Aqui onde fica as rotas que eu quero utilizar;
-routes.use('/users', userRouter);
-routes.use('/roles', roleRouter);
+routes.use("/roles", rolesRouter);
+
+routes.use("/employees", employeesRouter);
 
 export default routes;
