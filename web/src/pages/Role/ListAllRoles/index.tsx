@@ -17,7 +17,6 @@ export default function ListAllRoles() {
   const history = useHistory();
 
   function handlerDeleteARole(id: number) {
-    localStorage.setItem("id", String(id));
     api.delete(`/roles/v1/${id}`).then(() => {
       history.push("/roles");
     });
@@ -30,14 +29,18 @@ export default function ListAllRoles() {
 
   return (
     <div>
+      <button onClick={() => history.push("/role/create")}>
+        Adicionar Cargos
+      </button>
       {roles.map((role) => {
         return (
           <div key={role.id}>
+            {localStorage.setItem("id", String(role.id))}
             <p>{role.name}</p>
             <p>{role.id}</p>
             <p>{role.description}</p>
             <button>
-              <Link to={`role/edit/${role.id}/`}>Editar</Link>
+              <Link to={`/role-edit/${role.id}`}>Editar</Link>
             </button>
             <button
               onClick={() => {
@@ -45,6 +48,9 @@ export default function ListAllRoles() {
               }}
             >
               Deletar
+            </button>
+            <button onClick={() => history.push(`/role/${role.id}`)}>
+              Ver detalhes sobre o cargo
             </button>
           </div>
         );

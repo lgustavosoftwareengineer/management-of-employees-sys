@@ -19,14 +19,18 @@ export default function EditRole() {
 
   const params = useParams<RoleParams>();
   const [role, setRole] = useState<Role>();
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState(role?.name);
+  const [description, setDescription] = useState(role?.description);
 
+  // function async handlerGettingRole(){
+
+  // }
   useEffect(() => {
+    console.log(params.id);
     api.get(`roles/v1/${params.id}`).then((response) => {
       setRole(response.data.data.role);
     });
-  }, []);
+  }, [params.id]);
 
   if (!role) {
     return <p>Carregando ...</p>;
@@ -37,7 +41,8 @@ export default function EditRole() {
 
     const data = { name, description };
     console.log(data);
-
+    setName(role?.name);
+    setDescription(role?.description);
     await api.put(`roles/v1/${params.id}`, data);
 
     alert("Dados editados com sucesso");
@@ -51,7 +56,7 @@ export default function EditRole() {
       <main>
         <form className="create-orphanage-form" onSubmit={handleSubmit}>
           <fieldset>
-            <legend>Crie um cargo</legend>
+            <legend>Edite um cargo</legend>
 
             {/* <Map
               center={[-8.6798175, -35.5844157]}

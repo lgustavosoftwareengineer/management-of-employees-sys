@@ -16,6 +16,7 @@ import CreateRole from "./pages/Role/CreateRole";
 /* DELETE PAGES */
 import EditEmployee from "./pages/Employee/EditEmployee";
 import EditRole from "./pages/Role/EditRole/";
+import RoleDetails from "./pages/Role/RoleDetails";
 
 /**
  * Terá 6 páginas:
@@ -63,8 +64,8 @@ function Routes() {
         <Route path="/employees" component={ListAllEmployees} />
 
         <Route path="/role/create" component={CreateRole} />
-        {/* <Route path="/role/:id" component={RoleDetails} /> */}
-        <Route path="/role/edit/:id" exact component={EditRole} />
+        <Route path="/role/:id" component={RoleDetails} />
+        <Route path="/role-edit/:id" exact component={EditRole} />
         <Route path="/roles" component={ListAllRoles} />
       </Switch>
     </BrowserRouter>

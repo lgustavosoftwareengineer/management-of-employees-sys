@@ -10,8 +10,8 @@ import api from "../../../services/api";
 export default function CreateRole() {
   const history = useHistory();
 
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState<string>();
+  const [description, setDescription] = useState<string>();
 
   // /** HANDLERS */
   async function handleSubmit(event: FormEvent) {
@@ -19,6 +19,10 @@ export default function CreateRole() {
 
     const data = { name, description };
     console.log(data);
+
+    if (!(name && description) || !(name || description)) {
+      alert("Preencha os campos");
+    }
 
     await api.post("roles/v1/", data);
 
