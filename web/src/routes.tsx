@@ -60,7 +60,7 @@ function Routes() {
 
         <Route path="/employee/create" component={CreateEmployee} />
         <Route path="/employee/:id" component={EmployeeDetails} />
-        <Route path="/employee/edit/:id" component={EditEmployee} />
+        <Route path="/employee-edit/:id" component={EditEmployee} />
         <Route path="/employees" component={ListAllEmployees} />
 
         <Route path="/role/create" component={CreateRole} />

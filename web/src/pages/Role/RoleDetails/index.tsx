@@ -14,7 +14,7 @@ interface RoleParams {
   id: string;
 }
 
-const RoleDetails: React.FC = () => {
+export default function RoleDetails() {
   const history = useHistory();
 
   const params = useParams<RoleParams>();
@@ -44,6 +44,4 @@ const RoleDetails: React.FC = () => {
       )}
     </div>
   );
-};
-
-export default RoleDetails;
+}

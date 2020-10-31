@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 // import { FiPlus } from "react-icons/fi";
@@ -7,28 +7,47 @@ import "./styles.css";
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
 
+interface Role {
+  id: number;
+  name: string;
+  description: string;
+}
+
 export default function CreateEmployee() {
   const history = useHistory();
 
-  const [name, setName] = useState("");
-  const [last_name, setLastName] = useState("");
-  const [role_id, setRoleId] = useState(0);
-  const [birth_date, setBirthDate] = useState("");
-  const [salary, setSalary] = useState(0);
+  const [name, setName] = useState<string>();
+  const [last_name, setLastName] = useState<string>();
+  const [role_id, setRoleId] = useState<number>(0);
+  const [birth_date, setBirthDate] = useState<string>();
+  const [salary, setSalary] = useState<number>();
+
+  const [roles, setRoles] = useState<Role[]>([]);
 
   // /** HANDLERS */
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
     const data = { name, last_name, role_id, birth_date, salary };
-    console.log(data);
+    if (
+      !(name || last_name || role_id || birth_date || salary) ||
+      !(name && last_name && role_id && birth_date && salary)
+    ) {
+      alert("Algum campo está faltando");
+    } else {
+      await api.post("employees/v1", data);
 
-    //await api.post("users/v1", data);
+      alert("Cadastro realizado com sucesso!");
 
-    alert('Cadastro realizado com sucesso"');
-
-    history.push("/");
+      history.push("/employees/");
+    }
   }
+
+  useEffect(() => {
+    api.get("roles/v1").then((response) => {
+      setRoles(response.data.data.role);
+    });
+  }, [roles]);
 
   return (
     <div id="page-create-orphanage">
@@ -37,25 +56,6 @@ export default function CreateEmployee() {
         <form onSubmit={handleSubmit} className="create-orphanage-form">
           <fieldset>
             <legend>Crie um funcionário</legend>
-
-            {/* <Map
-              center={[-8.6798175, -35.5844157]}
-              style={{ width: "100%", height: 280 }}
-              zoom={15}
-              onClick={handleMapClick}
-            >
-              <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-              {position.latitude !== 0 && (
-                <Marker
-                  interactive={false}
-                  icon={mapIcon}
-                  position={[position.latitude, position.longitude]}
-                />
-              )}
-
-              
-            </Map> */}
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
@@ -71,6 +71,7 @@ export default function CreateEmployee() {
               <input
                 id="last_name"
                 value={last_name}
+                placeholder={"Digite aqui sobrenome do funcionário..."}
                 onChange={(event) => setLastName(event.target.value)}
               />
             </div>
@@ -86,21 +87,41 @@ export default function CreateEmployee() {
           </fieldset>
 
           <div className="input-block">
-            <label htmlFor="role_id">Cargo</label>
-            <textarea
-              id="role_id"
-              value={role_id}
-              onChange={(event) => setRoleId(Number(event.target.value))}
-            />
+            <select
+              className="custom-select m3"
+              id="inputGroupSelect01"
+              onChange={(event) => {
+                setRoleId(Number(event.target.value));
+                console.log(role_id);
+              }}
+            >
+              <option defaultValue="Clique aqui para escolher o cargo" hidden>
+                Clique aqui para escolher o cargo
+              </option>
+              {roles.map((role) => {
+                return (
+                  <>
+                    <option value={role.id}>{role.name}</option>
+                  </>
+                );
+              })}
+            </select>
           </div>
 
-          <div className="input-block">
+          <div className="input-block ">
             <label htmlFor="salary">Salário</label>
-            <input
-              id="salary"
-              value={salary}
-              onChange={(event) => setSalary(Number(event.target.value))}
-            />
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text" id="inputGroupFileAddon01">
+                  R$
+                </span>
+              </div>
+              <input
+                id="salary"
+                value={salary}
+                onChange={(event) => setSalary(Number(event.target.value))}
+              />
+            </div>
           </div>
 
           <button className="confirm-button" type="submit">

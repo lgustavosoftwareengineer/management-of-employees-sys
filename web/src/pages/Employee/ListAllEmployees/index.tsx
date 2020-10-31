@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 // import { FiPlus } from "react-icons/fi";
@@ -7,37 +7,98 @@ import "./styles.css";
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
 
+interface Employee {
+  id: number;
+  name: string;
+  last_name: string;
+  birth_date: string;
+  salary: number;
+  role_id: number;
+}
+
+interface Role {
+  id: number;
+  name: string;
+  description: string;
+}
+
 export default function ListAllEmployees() {
   const history = useHistory();
 
-  const [name, setName] = useState("");
-  const [last_name, setLastName] = useState("");
-  const [role_id, setRoleId] = useState(0);
-  const [birth_date, setBirthDate] = useState("");
-  const [salary, setSalary] = useState(0);
+  const [employees, setEmployees] = useState<Employee[]>();
+  const [roles, setRoles] = useState<Role[]>();
+  const [loading, setLoading] = useState(false);
 
   // /** HANDLERS */
-  async function handleSubmit(event: FormEvent) {
-    event.preventDefault();
+  useEffect(() => {
+    api.get("employees/v1/").then((response) => {
+      setEmployees(response.data.data.employees);
+    });
 
-    const data = { name, last_name, role_id, birth_date, salary };
-    console.log(data);
+    api.get("roles/v1/").then((response) => {
+      setRoles(response.data.data.role);
+    });
 
-    //await api.post("users/v1", data);
+    setLoading(true);
+  }, [employees]);
 
-    alert('Cadastro realizado com sucesso"');
-
-    history.push("/");
+  async function handlerDeleteEmployee(id: number) {
+    await api.delete(`employees/v1/${id}`);
   }
 
   return (
     <div id="page-create-orphanage">
       <Sidebar />
       <main>
-        <form onSubmit={handleSubmit} className="create-orphanage-form">
+        <form className="create-orphanage-form">
           <fieldset>
             <legend>Aqui está a lista dos seus funcionários</legend>
+
+            {!(
+              employees === undefined ||
+              employees === null ||
+              employees.length === 0
+            ) ? (
+              employees?.map((employee) => {
+                return (
+                  <>
+                    <div key={employee.id}>
+                      <h1>
+                        {employee.name} {employee.last_name}
+                      </h1>
+                      {roles?.map((role) => {
+                        if (role.id === employee.role_id) {
+                          return <p> Cargo: {role.name}</p>;
+                        }
+                        return <div></div>;
+                      })}
+
+                      <p>Salário: R$ {employee.salary}</p>
+                      <button
+                        onClick={() => {
+                          history.push(`/employee-edit/${employee.id}`);
+                        }}
+                      >
+                        Editar funcionário
+                      </button>
+                      <button
+                        onClick={() => {
+                          handlerDeleteEmployee(employee.id);
+                        }}
+                      >
+                        Deletar funcionário
+                      </button>
+                    </div>
+                  </>
+                );
+              })
+            ) : (
+              <p>Nenhum funcionário por enquanto!</p>
+            )}
           </fieldset>
+          <button onClick={() => history.push("/employee/create")}>
+            Criar um funcionário
+          </button>
         </form>
       </main>
     </div>
