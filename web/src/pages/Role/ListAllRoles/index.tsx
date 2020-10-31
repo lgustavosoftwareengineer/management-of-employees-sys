@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FiArrowRight, FiPlus } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
+import Sidebar from "../../../components/Sidebar";
 
 import api from "../../../services/api";
 
@@ -28,33 +29,60 @@ export default function ListAllRoles() {
   }, [roles]);
 
   return (
-    <div>
-      <button onClick={() => history.push("/role/create")}>
-        Adicionar Cargos
-      </button>
-      {roles.map((role) => {
-        return (
-          <div key={role.id}>
-            {localStorage.setItem("id", String(role.id))}
-            <p>{role.name}</p>
-            <p>{role.id}</p>
-            <p>{role.description}</p>
-            <button>
-              <Link to={`/role-edit/${role.id}`}>Editar</Link>
-            </button>
-            <button
-              onClick={() => {
-                handlerDeleteARole(role.id);
-              }}
-            >
-              Deletar
-            </button>
-            <button onClick={() => history.push(`/role/${role.id}`)}>
-              Ver detalhes sobre o cargo
-            </button>
-          </div>
-        );
-      })}
+    <div id="page-create-orphanage">
+      <Sidebar />
+      <main>
+        <form className="create-orphanage-form">
+          <fieldset>
+            <legend>Aqui está a lista dos cargos da sua empresa</legend>
+
+            {!(roles === undefined || roles === null || roles.length === 0) ? (
+              roles?.map((role) => {
+                return (
+                  <>
+                    <div key={role.id}>
+                      <h1>{role.name}</h1>
+
+                      <p>{role.description}</p>
+                      <button
+                        onClick={() => {
+                          history.push(`/role-edit/${role.id}`);
+                        }}
+                      >
+                        Editar cargo
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          history.push(`/role/${role.id}`);
+                        }}
+                      >
+                        Ver detalhes do cargo
+                      </button>
+                      <button
+                        onClick={() => {
+                          handlerDeleteARole(role.id);
+                        }}
+                      >
+                        Deletar cargo
+                      </button>
+                    </div>
+                  </>
+                );
+              })
+            ) : (
+              <p>Nenhum cargo por enquanto!</p>
+            )}
+          </fieldset>
+          <button
+            className="confirm-button"
+            id="list-all-roles"
+            onClick={() => history.push("/role/create")}
+          >
+            Adicione um cargo
+          </button>
+        </form>
+      </main>
     </div>
   );
 }

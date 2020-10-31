@@ -79,7 +79,7 @@ export default function EditEmployee() {
       <main>
         <form onSubmit={handleSubmit} className="create-orphanage-form">
           <fieldset>
-            <legend>Crie um funcionário</legend>
+            <legend>Edite os dados do seu funcionário</legend>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>

@@ -11,7 +11,7 @@ function Landing() {
   return (
     <div id="page-landing">
       <div className="content-wrapper">
-        <img src={logoImg} alt="logo" width="100" id="logo" />
+        {/* <img src={logoImg} alt="logo" width="100" id="logo" /> */}
 
         <main>
           <h1>Seja bem vindo(a) ao Employee Management</h1>

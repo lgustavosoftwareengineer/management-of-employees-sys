@@ -30,18 +30,31 @@ export default function RoleDetails() {
     return <p>Carregando ...</p>;
   }
   return (
-    <div>
-      {role ? (
-        <div key={role.id}>
-          <h1>{role.name}</h1>
-          <p>{role.description}</p>
-          <button onClick={() => history.push("/roles")}>Voltar</button>
-        </div>
-      ) : (
-        <div>
-          <p>Carregando...</p>
-        </div>
-      )}
+    <div id="page-create-orphanage">
+      <Sidebar />
+      <main>
+        <form className="create-orphanage-form">
+          <fieldset>
+            {role ? (
+              <div key={role.id}>
+                <legend>{role.name}</legend>
+
+                <p> {role.description}</p>
+
+                <button
+                  onClick={() => {
+                    history.push(`/role-edit/${role.id}`);
+                  }}
+                >
+                  Editar role
+                </button>
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </fieldset>
+        </form>
+      </main>
     </div>
   );
 }

@@ -1,0 +1,26 @@
+button.confirm-button#list-all-roles {
+  margin-top: 64px;
+
+  width: 100%;
+  height: 64px;
+  border: 0;
+  cursor: pointer;
+  background: #3030a1;
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.2s;
+}
+
+button.confirm-button svg {
+  margin-right: 16px;
+}
+
+button.confirm-button#list-all-roles:hover {
+  background: #0aa8ad;
+}

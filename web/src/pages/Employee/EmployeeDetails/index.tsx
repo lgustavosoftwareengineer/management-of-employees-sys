@@ -49,12 +49,12 @@ export default function EmployeeDetail() {
       <main>
         <form className="create-orphanage-form">
           <fieldset>
-            <legend>Aqui está a lista dos seus funcionários</legend>
             {employee ? (
               <div key={employee.id}>
-                <h1>
+                <legend>
                   {employee.name} {employee.last_name}
-                </h1>
+                </legend>
+
                 <p> Cargo: {employee.role}</p>
                 <p>Salário: R$ {employee.salary}</p>
                 <button

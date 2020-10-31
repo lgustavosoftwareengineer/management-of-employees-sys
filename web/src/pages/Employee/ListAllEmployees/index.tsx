@@ -104,7 +104,11 @@ export default function ListAllEmployees() {
               <p>Nenhum funcionário por enquanto!</p>
             )}
           </fieldset>
-          <button onClick={() => history.push("/employee/create")}>
+          <button
+            className="confirm-button"
+            id="list-all-employees"
+            onClick={() => history.push("/employee/create")}
+          >
             Criar um funcionário
           </button>
         </form>
