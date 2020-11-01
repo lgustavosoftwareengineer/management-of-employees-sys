@@ -80,6 +80,7 @@ export default function CreateEmployee() {
               <input
                 id="birth_date"
                 value={birth_date}
+                placeholder="Ex: '19/09/2001'"
                 onChange={(event) => setBirthDate(event.target.value)}
               />
             </div>
