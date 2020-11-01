@@ -113,7 +113,6 @@ div.buttons-container > .see-role-list-all {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
 }
 
 #company-data:hover {
@@ -123,16 +122,17 @@ div.buttons-container > .see-role-list-all {
 
 #company-data #company-content {
   display: flex;
+  padding-bottom: 4px;
 }
 
 #company-data #company-content #company-icon {
   margin-right: 7px;
-  margin-top: 4px;
   color: #fff;
 }
 
 #company-data #company-content p {
   color: #fff;
+  font-size: 16px;
 }
 
 p {

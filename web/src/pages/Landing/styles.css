@@ -86,9 +86,6 @@
   transition: background-color 0.2s;
 }
 
-.content-wrapper .enter-app:hover {
-  background: #3030a1;
-}
 .content-enter-app {
   display: flex;
   flex-direction: row;

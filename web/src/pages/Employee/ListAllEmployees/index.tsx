@@ -77,8 +77,9 @@ export default function ListAllEmployees() {
               <div className="title">
                 <FiUsers size={50} color="#0aa8ad" id="icon" />
                 <legend>
-                  Seja bem-vindo(a), {company?.name}! Aqui está a lista dos
-                  funcionários da {company.companyName}
+                  <span style={{ color: "#0aa8ad" }}>Seja bem-vindo(a)</span>,{" "}
+                  {company?.name}! Aqui está a lista dos funcionários da{" "}
+                  {company.companyName}
                 </legend>
               </div>
 
@@ -91,7 +92,7 @@ export default function ListAllEmployees() {
                   return (
                     <>
                       <div key={employee.id} className="role-content">
-                        <h1>
+                        <h1 style={{ color: "#5c8599" }}>
                           {employee.name} {employee.last_name}
                         </h1>
 
@@ -108,7 +109,7 @@ export default function ListAllEmployees() {
                               <p>
                                 {" "}
                                 Cargo:{" "}
-                                <span style={{ color: "#7e7d7d" }}>
+                                <span style={{ color: "#0aa8ad" }}>
                                   {role.name}
                                 </span>
                               </p>
@@ -168,12 +169,15 @@ export default function ListAllEmployees() {
         </main>
 
         <div id="company-data" onClick={() => history.push("/")}>
-          <div id="company-content">
+          <div
+            id="company-content"
+            style={{ marginTop: 10, paddingTop: 20, paddingBottom: -20 }}
+          >
             <FiUser id="company-icon" />
             <p>{company.name}</p>
           </div>
-          <div id="company-content">
-            <FiHome id="company-icon" />
+          <div id="company-content" style={{ marginTop: -18 }}>
+            <FiHome id="company-icon" style={{ marginBottom: 60 }} />
             <p>{company.companyName}</p>
           </div>
         </div>

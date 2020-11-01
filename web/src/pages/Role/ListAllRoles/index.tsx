@@ -55,8 +55,9 @@ export default function ListAllRoles() {
             <div className="title">
               <FiBriefcase size={50} color="#0aa8ad" id="icon" />
               <legend>
-                Seja bem-vindo(a), {company.name}! Aqui está a lista dos cargos
-                da {company.companyName}
+                <span style={{ color: "#0aa8ad" }}>Seja bem-vindo(a)</span>,{" "}
+                {company.name}! Aqui está a lista dos cargos da{" "}
+                {company.companyName}
               </legend>
             </div>
 
@@ -124,12 +125,15 @@ export default function ListAllRoles() {
         </form>
       </main>
       <div id="company-data" onClick={() => history.push("/")}>
-        <div id="company-content">
+        <div
+          id="company-content"
+          style={{ marginTop: 10, paddingTop: 20, paddingBottom: -20 }}
+        >
           <FiUser id="company-icon" />
           <p>{company.name}</p>
         </div>
-        <div id="company-content">
-          <FiHome id="company-icon" />
+        <div id="company-content" style={{ marginTop: -18 }}>
+          <FiHome id="company-icon" style={{ marginBottom: 60 }} />
           <p>{company.companyName}</p>
         </div>
       </div>

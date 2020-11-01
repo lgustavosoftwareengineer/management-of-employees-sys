@@ -15,22 +15,15 @@ function Landing() {
   async function handlerSetCompanyData(event: FormEvent) {
     event.preventDefault();
 
-    console.log(name, companyName);
-
     if (!name && !companyName) {
       alert("Preencha todos os dados");
     } else {
       const data = { name, companyName };
       await localStorage.setItem("CompanyData", JSON.stringify(data));
 
-      console.log(localStorage.getItem("CompanyData"));
       history.push("/employees");
     }
   }
-
-  useEffect(() => {
-    console.log(name, companyName);
-  }, [name, companyName]);
 
   return (
     <div id="page-landing">
@@ -41,9 +34,9 @@ function Landing() {
           </h1>
           <div className="content-enter-app">
             <p>Quer gerenciar os seus funcionários?</p>
-            <Link to="/employees" className="enter-app">
+            <div className="enter-app">
               <FiArrowRight size={26} color={"rgba(0,0,0, 0.6 )"} />
-            </Link>
+            </div>
           </div>
 
           <form
@@ -66,8 +59,9 @@ function Landing() {
                 <label htmlFor="name">Nome</label>
                 <input
                   id="name"
-                  placeholder="Qual o seu nome?"
+                  placeholder="Qual o seu nome? (Primeiro nome, por favor)"
                   value={name}
+                  maxLength={15}
                   onChange={(event) => setName(event.target.value)}
                 />
               </div>
@@ -75,8 +69,9 @@ function Landing() {
                 <label htmlFor="name">Empresa</label>
                 <input
                   id="company"
-                  placeholder="Qual o nome da sua empresa?"
+                  placeholder="Qual o nome da sua empresa? (Sigla, por favor)"
                   value={companyName}
+                  maxLength={24}
                   onChange={(event) => setCompanyName(event.target.value)}
                 />
               </div>
