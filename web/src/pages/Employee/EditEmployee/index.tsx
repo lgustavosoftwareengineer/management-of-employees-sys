@@ -121,7 +121,7 @@ export default function EditEmployee() {
           </fieldset>
 
           <div className="input-block">
-            {console.log(role, role_id)}
+            <label htmlFor="role">Cargo</label>
 
             <select
               className="custom-select m3"
@@ -151,22 +151,20 @@ export default function EditEmployee() {
             </select>
           </div>
 
-          <div className="input-block ">
-            <label htmlFor="salary">Salário</label>
-            <div className="input-group">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroupFileAddon01">
-                  R$
-                </span>
-              </div>
-              <input
-                id="salary"
-                value={salary}
-                defaultValue={employee.salary}
-                type="number"
-                onChange={(event) => setSalary(Number(event.target.value))}
-              />
+          <label htmlFor="role">Salário</label>
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text">R$</span>
             </div>
+            <input
+              id="salary"
+              value={salary}
+              className="form-control"
+              defaultValue={employee.salary}
+              type="number"
+              onChange={(event) => setSalary(Number(event.target.value))}
+            />
           </div>
 
           <button className="confirm-button" id="edit-role" type="submit">

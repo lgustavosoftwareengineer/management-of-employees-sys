@@ -71,7 +71,6 @@ export default function CreateEmployee() {
               <input
                 id="last_name"
                 value={last_name}
-                placeholder={"Digite aqui sobrenome do funcionário..."}
                 onChange={(event) => setLastName(event.target.value)}
               />
             </div>
@@ -87,12 +86,12 @@ export default function CreateEmployee() {
           </fieldset>
 
           <div className="input-block">
+            <label htmlFor="role">Cargo</label>
             <select
               className="custom-select m3"
               id="inputGroupSelect01"
               onChange={(event) => {
                 setRoleId(Number(event.target.value));
-                console.log(role_id);
               }}
             >
               <option defaultValue="Clique aqui para escolher o cargo" hidden>
@@ -108,23 +107,21 @@ export default function CreateEmployee() {
             </select>
           </div>
 
-          <div className="input-block ">
-            <label htmlFor="salary">Salário</label>
-            <div className="input-group">
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="inputGroupFileAddon01">
-                  R$
-                </span>
-              </div>
-              <input
-                id="salary"
-                value={salary}
-                onChange={(event) => setSalary(Number(event.target.value))}
-              />
+          <label htmlFor="role">Salário</label>
+
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text">R$</span>
             </div>
+            <input
+              id="salary"
+              value={salary}
+              className="form-control"
+              onChange={(event) => setSalary(Number(event.target.value))}
+            />
           </div>
 
-          <button className="confirm-button" type="submit">
+          <button className="confirm-button" id="create-role" type="submit">
             Confirmar
           </button>
         </form>

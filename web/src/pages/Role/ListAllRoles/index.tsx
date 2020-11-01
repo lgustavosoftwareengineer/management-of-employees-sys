@@ -82,7 +82,7 @@ export default function ListAllRoles() {
                 );
               })
             ) : (
-              <p>Nenhum cargo por enquanto!</p>
+              <p>😴 Nenhum cargo por enquanto.</p>
             )}
           </fieldset>
           <button

@@ -25,11 +25,7 @@ export default function EditRole() {
   const [name, setName] = useState(role?.name);
   const [description, setDescription] = useState(role?.description);
 
-  // function async handlerGettingRole(){
-
-  // }
   useEffect(() => {
-    console.log(params.id);
     api.get(`roles/v1/${params.id}`).then((response) => {
       setRole(response.data.data.role);
     });
@@ -43,7 +39,6 @@ export default function EditRole() {
     event.preventDefault();
 
     const data = { name, description };
-    console.log(data);
     setName(role?.name);
     setDescription(role?.description);
     await api.put(`roles/v1/${params.id}`, data);
@@ -63,25 +58,6 @@ export default function EditRole() {
               <FiFileText size={50} color="#0aa8ad" id="role-icon" />
               <legend>Edite um cargo</legend>
             </div>
-
-            {/* <Map
-              center={[-8.6798175, -35.5844157]}
-              style={{ width: "100%", height: 280 }}
-              zoom={15}
-              onClick={handleMapClick}
-            >
-              <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-              {position.latitude !== 0 && (
-                <Marker
-                  interactive={false}
-                  icon={mapIcon}
-                  position={[position.latitude, position.longitude]}
-                />
-              )}
-
-              
-            </Map> */}
 
             <div className="input-block">
               <label htmlFor="name">Nome do cargo</label>

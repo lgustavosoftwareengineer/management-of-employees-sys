@@ -115,15 +115,15 @@ export default function ListAllEmployees() {
                 );
               })
             ) : (
-              <p>Nenhum cargo por enquanto!</p>
+              <p>😴 Nenhum funcionário por enquanto!</p>
             )}
           </fieldset>
           <button
             className="confirm-button"
             id="list-all-roles"
-            onClick={() => history.push("/role/create")}
+            onClick={() => history.push("/employee/create")}
           >
-            Adicione um cargo
+            Adicione um funcionário
           </button>
         </form>
       </main>

@@ -49,22 +49,24 @@ form.create-role-form .input-block + .input-block {
   margin-top: 24px;
 }
 
-form.create-role-form .input-block label {
+form.create-role-form label {
   display: flex;
   color: #8fa7b3;
   margin-bottom: 8px;
+  margin-top: 20px;
+
   line-height: 24px;
 }
 
-form.create-role-form .input-block label span {
+form.create-role-form label span {
   font-size: 14px;
   color: #8fa7b3;
   margin-left: 24px;
   line-height: 24px;
 }
 
-form.create-role-form .input-block input,
-form.create-role-form .input-block textarea {
+form.create-role-form input,
+form.create-role-form textarea {
   width: 100%;
   background: #f5f8fa;
   border: 1px solid #d3e2e5;
@@ -73,102 +75,17 @@ form.create-role-form .input-block textarea {
   color: #5c8599;
 }
 
-form.create-role-form .input-block input {
+form.create-role-form input {
   height: 64px;
   padding: 0 16px;
 }
 
-form.create-role-form .input-block textarea {
+form.create-role-form textarea {
   min-height: 120px;
   max-height: 240px;
   resize: vertical;
   padding: 16px;
   line-height: 28px;
-}
-
-form.create-role-form .input-block .images-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-gap: 16px;
-}
-
-form.create-role-form .input-block .images-container img {
-  width: 100%;
-  height: 96px;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-form.create-role-form .input-block .images-container .new-image {
-  width: 100%;
-  height: 64px;
-  background: #f5f8fa;
-  border: 1px dashed #96d2f0;
-  border-radius: 20px;
-  cursor: pointer;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-form.create-role-form .input-block input[type="file"] {
-  display: none;
-}
-
-form.create-role-form .input-block .button-select {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-form.create-role-form .input-block .button-select button {
-  height: 64px;
-  background: #f5f8fa;
-  border: 1px solid #d3e2e5;
-  color: #5c8599;
-  cursor: pointer;
-}
-
-form.create-role-form .input-block .button-select button.active {
-  background: #edfff6;
-  border: 1px solid #a1e9c5;
-  color: #37c77f;
-}
-
-form.create-role-form .input-block .button-select button:first-child {
-  border-radius: 20px 0px 0px 20px;
-}
-
-form.create-role-form .input-block .button-select button:last-child {
-  border-radius: 0 20px 20px 0;
-  border-left: 0;
-}
-
-form.create-role-form button.confirm-button {
-  margin-top: 64px;
-
-  width: 100%;
-  height: 64px;
-  border: 0;
-  cursor: pointer;
-  background: #642414;
-  border-radius: 20px;
-  color: #ffffff;
-  font-weight: 800;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  transition: background-color 0.2s;
-}
-
-form.create-role-form button.confirm-button svg {
-  margin-right: 16px;
-}
-
-form.create-role-form button.confirm-button:hover {
-  background: #ab7c5d;
 }
 
 button.confirm-button#create-role {
