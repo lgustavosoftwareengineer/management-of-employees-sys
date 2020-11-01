@@ -91,7 +91,7 @@ $ yarn
 $ yarn server
 
 # Frontend
-# PS: IMPORTANTE ABRIR OUTRA APLICAÇÃO PARA RODAR A APLICAÇÃO WEB
+# PS: IMPORTANTE ABRIR OUTRO TERMINAL PARA RODAR A APLICAÇÃO WEB
 
 # Volte um diretório
 $ ../
