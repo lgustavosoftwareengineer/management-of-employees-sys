@@ -1,5 +1,4 @@
 import React, { FormEvent, useEffect, useState } from "react";
-import { FiUser } from "react-icons/fi";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useHistory, useParams } from "react-router-dom";
 
@@ -7,6 +6,7 @@ import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
 
 import "./styles.css";
+import Loading from "../../../components/Loading";
 
 interface Employee {
   id: number;
@@ -51,7 +51,7 @@ export default function EditEmployee() {
   }, [params.id]);
 
   if (!employee) {
-    return <p>Carregando ...</p>;
+    return <Loading />;
   }
 
   async function handleSubmit(event: FormEvent) {

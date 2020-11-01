@@ -1,6 +1,7 @@
 import React, { FormEvent, useEffect, useState } from "react";
 import { FiFileText } from "react-icons/fi";
 import { useHistory, useParams } from "react-router-dom";
+import Loading from "../../../components/Loading";
 
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
@@ -29,7 +30,7 @@ export default function RoleDetails() {
   }, []);
 
   if (!role) {
-    return <p>Carregando ...</p>;
+    return <Loading />;
   }
   return (
     <div id="page-create-role">

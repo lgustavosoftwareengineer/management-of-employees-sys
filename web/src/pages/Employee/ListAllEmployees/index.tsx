@@ -7,14 +7,11 @@ import "./styles.css";
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
 import {
-  FiBriefcase,
   FiEdit2,
-  FiFile,
   FiPlus,
   FiTrash,
   FiUsers,
   FiUser,
-  FiPaperclip,
   FiHome,
 } from "react-icons/fi";
 import Loading from "../../../components/Loading";

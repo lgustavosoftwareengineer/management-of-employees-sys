@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {
-  FiArrowRight,
   FiBriefcase,
   FiEdit2,
   FiHome,
-  FiPaperclip,
   FiPlus,
   FiTrash,
   FiUser,
 } from "react-icons/fi";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Loading from "../../../components/Loading";
 import Sidebar from "../../../components/Sidebar";
 

@@ -1,10 +1,8 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useState } from "react";
 import { FiArrowRight, FiUser } from "react-icons/fi";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import "./styles.css";
-
-import planning from "../../images/landing.jpg";
 
 function Landing() {
   const history = useHistory();
@@ -52,11 +50,11 @@ function Landing() {
                   id="employee-icon-edit"
                   style={{ marginTop: -7, marginRight: 10 }}
                 />
-                <legend>Digite os dados da sua empresa</legend>
+                <legend>Digite os dados</legend>
               </div>
 
               <div className="input-block" style={{ marginTop: -30 }}>
-                <label htmlFor="name">Nome</label>
+                <label htmlFor="name">Nome do administrador</label>
                 <input
                   id="name"
                   placeholder="Qual o seu nome? (Primeiro nome, por favor)"
@@ -66,7 +64,7 @@ function Landing() {
                 />
               </div>
               <div className="input-block">
-                <label htmlFor="name">Empresa</label>
+                <label htmlFor="name">Nome da Empresa</label>
                 <input
                   id="company"
                   placeholder="Qual o nome da sua empresa? (Sigla, por favor)"

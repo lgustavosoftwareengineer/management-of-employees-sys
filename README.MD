@@ -52,6 +52,14 @@
    <img src="./.github/screenshot02.png" />
 </p>
 
+<p align="center">
+   <img src="./.github/screenshot03.png" />
+</p>
+
+<p align="center">
+   <img src="./.github/screenshot04.png" />
+</p>
+
 # 🔨 Tecnologias
 
 Este projeto foi feito usando as seguintes tecnologias:
@@ -60,7 +68,6 @@ Frontend
 
 - [React](https://reactnative.dev/)
 - [React Router DOM](https://styled-components.com)
-- [React Router DOM](https://styled-components.com)
 - [Typescript](https://www.typescriptlang.org)
 - [ESLint](https://www.npmjs.com/package/eslint)
 - [Prettier](https://www.npmjs.com/package/eslint)
@@ -68,13 +75,13 @@ Frontend
 
 Backend
 
-- [NodeJS]()
-- [EmpressJS]()
-- [TypeScript]()
-- [TypeORM]()
-- [SQLite3]()
-- [Yup]()
-- [Moment]()
+- [NodeJS](https://nodejs.org/en/)
+- [EmpressJS](https://expressjs.com/)
+- [Typescript](https://www.typescriptlang.org)
+- [TypeORM](https://typeorm.io/)
+- [SQLite3](https://www.sqlitetutorial.net/sqlite-nodejs/)
+- [Yup](https://github.com/jquense/yup)
+- [Moment](https://momentjs.com/)
 
 # 💻 How to run
 
@@ -94,7 +101,7 @@ $ yarn server
 # PS: IMPORTANTE ABRIR OUTRO TERMINAL PARA RODAR A APLICAÇÃO WEB
 
 # Volte um diretório
-$ ../
+$ cd ../
 
 # Entre no diretório da aplicação web
 $ cd web/
