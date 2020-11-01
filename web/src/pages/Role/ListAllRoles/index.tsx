@@ -3,8 +3,10 @@ import {
   FiArrowRight,
   FiBriefcase,
   FiEdit2,
+  FiPaperclip,
   FiPlus,
   FiTrash,
+  FiUser,
 } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
 import Sidebar from "../../../components/Sidebar";
@@ -21,6 +23,9 @@ interface Role {
 
 export default function ListAllRoles() {
   const [roles, setRoles] = useState<Role[]>([]);
+  const [company, setCompany] = useState<any>(
+    JSON.parse(String(localStorage.getItem("CompanyData")))
+  );
   const history = useHistory();
 
   function handlerDeleteARole(id: number) {
@@ -106,6 +111,16 @@ export default function ListAllRoles() {
           </button>
         </form>
       </main>
+      <div id="company-data">
+        <div id="company-content">
+          <FiUser id="company-icon" />
+          <p>{company.name}</p>
+        </div>
+        <div id="company-content">
+          <FiPaperclip id="company-icon" />
+          <p>{company.companyName}</p>
+        </div>
+      </div>
     </div>
   );
 }

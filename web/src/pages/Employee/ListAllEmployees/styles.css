@@ -109,3 +109,32 @@ div.buttons-container > .see-role-list-all {
   margin-right: 5px;
   margin-left: 5px;
 }
+
+#company-data {
+  background: #3030a1;
+  height: 100px;
+  width: 200px;
+  position: absolute;
+  border-bottom-left-radius: 20px;
+  top: 0px;
+  right: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+#company-data #company-content {
+  display: flex;
+}
+
+#company-data #company-content #company-icon {
+  margin-right: 7px;
+  margin-top: 4px;
+  color: #fff;
+}
+
+#company-data #company-content p {
+  color: #fff;
+}

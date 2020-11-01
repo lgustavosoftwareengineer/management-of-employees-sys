@@ -87,8 +87,7 @@ form.create-role-form textarea {
   padding: 16px;
   line-height: 28px;
 }
-
-button.confirm-button#edit-role {
+button.confirm-button#edit-employee {
   margin-top: 64px;
 
   width: 100%;
@@ -111,12 +110,6 @@ button.confirm-button svg {
   margin-right: 16px;
 }
 
-button.confirm-button#edit-role:hover {
-  background: #0aa8ad;
-}
-
-#employee-icon-edit {
-  margin-top: 5px;
-  margin-right: 13px;
-  margin-bottom: 19px;
+button.confirm-button#edit-employee:hover {
+  background: #66ff85;
 }

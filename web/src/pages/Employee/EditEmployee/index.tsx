@@ -167,7 +167,7 @@ export default function EditEmployee() {
             />
           </div>
 
-          <button className="confirm-button" id="edit-role" type="submit">
+          <button className="confirm-button" id="edit-employee" type="submit">
             Confirmar
           </button>
         </form>

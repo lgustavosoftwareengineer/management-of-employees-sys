@@ -6,7 +6,16 @@ import { useHistory } from "react-router-dom";
 import "./styles.css";
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
-import { FiBriefcase, FiEdit2, FiPlus, FiTrash, FiUsers } from "react-icons/fi";
+import {
+  FiBriefcase,
+  FiEdit2,
+  FiFile,
+  FiPlus,
+  FiTrash,
+  FiUsers,
+  FiUser,
+  FiPaperclip,
+} from "react-icons/fi";
 
 interface Employee {
   id: number;
@@ -29,9 +38,13 @@ export default function ListAllEmployees() {
   const [employees, setEmployees] = useState<Employee[]>();
   const [roles, setRoles] = useState<Role[]>();
   const [loading, setLoading] = useState(false);
+  const [company, setCompany] = useState<any>(
+    JSON.parse(String(localStorage.getItem("CompanyData")))
+  );
 
   // /** HANDLERS */
   useEffect(() => {
+    console.log(company);
     api.get("employees/v1/").then((response) => {
       setEmployees(response.data.data.employees);
     });
@@ -48,92 +61,105 @@ export default function ListAllEmployees() {
   }
 
   return (
-    <div id="page-create-role">
-      <Sidebar page="employee" />
+    <>
+      <div id="page-create-role">
+        <Sidebar page="employee" />
 
-      <main id="list-all-roles">
-        <form className="create-role-form">
-          <fieldset>
-            <div className="title">
-              <FiUsers size={50} color="#0aa8ad" id="icon" />
-              <legend>
-                Seja bem-vindo(a)! Aqui está a lista dos funcionários da sua
-                empresa
-              </legend>
-            </div>
+        <main id="list-all-roles">
+          <form className="create-role-form">
+            <fieldset>
+              <div className="title">
+                <FiUsers size={50} color="#0aa8ad" id="icon" />
+                <legend>
+                  Seja bem-vindo(a) {company?.name}! Aqui está a lista dos
+                  funcionários da sua empresa
+                </legend>
+              </div>
 
-            {!(
-              employees === undefined ||
-              employees === null ||
-              employees.length === 0
-            ) ? (
-              employees?.map((employee) => {
-                return (
-                  <>
-                    <div key={employee.id} className="role-content">
-                      <h1>
-                        {employee.name} {employee.last_name}
-                      </h1>
+              {!(
+                employees === undefined ||
+                employees === null ||
+                employees.length === 0
+              ) ? (
+                employees?.map((employee) => {
+                  return (
+                    <>
+                      <div key={employee.id} className="role-content">
+                        <h1>
+                          {employee.name} {employee.last_name}
+                        </h1>
 
-                      <p>Salário: R$ {employee.salary}</p>
+                        <p>Salário: R$ {employee.salary}</p>
 
-                      {roles?.map((role) => {
-                        if (role.id === employee.role_id) {
-                          return <p> Cargo: {role.name}</p>;
-                        }
-                        return <div></div>;
-                      })}
-                      <div className="buttons-container">
-                        <button
-                          className="employee-button"
-                          id="edit-button"
-                          onClick={() => {
-                            history.push(`/employee-edit/${employee.id}`);
-                          }}
-                        >
-                          <FiEdit2 id="role-button-icon" />
-                          Editar funcionário
-                        </button>
+                        {roles?.map((role) => {
+                          if (role.id === employee.role_id) {
+                            return <p> Cargo: {role.name}</p>;
+                          }
+                          return <div></div>;
+                        })}
+                        <div className="buttons-container">
+                          <button
+                            className="employee-button"
+                            id="edit-button"
+                            onClick={() => {
+                              history.push(`/employee-edit/${employee.id}`);
+                            }}
+                          >
+                            <FiEdit2 id="role-button-icon" />
+                            Editar funcionário
+                          </button>
 
-                        <button
-                          className="employee-button"
-                          id="details-button"
-                          onClick={() => {
-                            history.push(`/employee/${employee.id}`);
-                          }}
-                        >
-                          <FiPlus id="role-button-icon" />
-                          Detalhes
-                        </button>
-                        <button
-                          className="employee-button"
-                          id="delete-button"
-                          onClick={() => {
-                            handlerDeleteEmployee(employee.id);
-                          }}
-                        >
-                          <FiTrash id="role-button-icon" />
-                          Deletar funcionário
-                        </button>
+                          <button
+                            className="employee-button"
+                            id="details-button"
+                            onClick={() => {
+                              history.push(`/employee/${employee.id}`);
+                            }}
+                          >
+                            <FiPlus id="role-button-icon" />
+                            Detalhes
+                          </button>
+                          <button
+                            className="employee-button"
+                            id="delete-button"
+                            onClick={() => {
+                              handlerDeleteEmployee(employee.id);
+                            }}
+                          >
+                            <FiTrash id="role-button-icon" />
+                            Deletar funcionário
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </>
-                );
-              })
-            ) : (
-              <p>😴 Nenhum funcionário por enquanto!</p>
-            )}
-          </fieldset>
-          <button
-            className="confirm-button"
-            id="list-all-roles"
-            onClick={() => history.push("/employee/create")}
-          >
-            Adicione um funcionário
-          </button>
-        </form>
-      </main>
-    </div>
+                    </>
+                  );
+                })
+              ) : (
+                <p>😴 Nenhum funcionário por enquanto!</p>
+              )}
+            </fieldset>
+            <button
+              className="confirm-button"
+              id="list-all-roles"
+              onClick={() => history.push("/employee/create")}
+            >
+              Adicione um funcionário
+            </button>
+          </form>
+        </main>
+
+        <div id="company-data">
+          <div id="company-content">
+            <FiUser id="company-icon" />
+            <p>{company.name}</p>
+          </div>
+          <div id="company-content">
+            <FiPaperclip id="company-icon" />
+            <p>{company.companyName}</p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
