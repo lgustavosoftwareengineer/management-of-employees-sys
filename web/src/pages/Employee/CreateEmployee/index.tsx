@@ -50,10 +50,10 @@ export default function CreateEmployee() {
   }, [roles]);
 
   return (
-    <div id="page-create-role">
+    <div id="page-create-employee">
       <Sidebar page="employee" />
       <main>
-        <form onSubmit={handleSubmit} className="create-role-form">
+        <form onSubmit={handleSubmit} className="create-employee-form">
           <fieldset>
             <legend>Crie um funcionário</legend>
 
@@ -121,7 +121,7 @@ export default function CreateEmployee() {
             />
           </div>
 
-          <button className="confirm-button" id="create-role" type="submit">
+          <button className="confirm-button" id="create-employee" type="submit">
             Confirmar
           </button>
         </form>

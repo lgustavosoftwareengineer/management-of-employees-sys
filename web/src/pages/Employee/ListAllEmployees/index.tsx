@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import "./styles.css";
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
-import { FiBriefcase, FiUsers } from "react-icons/fi";
+import { FiBriefcase, FiEdit2, FiPlus, FiTrash, FiUsers } from "react-icons/fi";
 
 interface Employee {
   id: number;
@@ -85,28 +85,34 @@ export default function ListAllEmployees() {
                       })}
                       <div className="buttons-container">
                         <button
-                          className="edit-role-list-all"
+                          className="employee-button"
+                          id="edit-button"
                           onClick={() => {
                             history.push(`/employee-edit/${employee.id}`);
                           }}
                         >
+                          <FiEdit2 id="role-button-icon" />
                           Editar funcionário
                         </button>
 
                         <button
-                          className="see-role-list-all"
+                          className="employee-button"
+                          id="details-button"
                           onClick={() => {
                             history.push(`/employee/${employee.id}`);
                           }}
                         >
-                          + Detalhes
+                          <FiPlus id="role-button-icon" />
+                          Detalhes
                         </button>
                         <button
-                          className="delete-role-list-all"
+                          className="employee-button"
+                          id="delete-button"
                           onClick={() => {
                             handlerDeleteEmployee(employee.id);
                           }}
                         >
+                          <FiTrash id="role-button-icon" />
                           Deletar funcionário
                         </button>
                       </div>

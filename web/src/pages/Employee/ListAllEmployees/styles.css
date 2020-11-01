@@ -74,3 +74,38 @@ div.buttons-container > .see-role-list-all {
   padding-bottom: 20px;
   border-bottom: #d3e2e5 solid 1px;
 }
+
+.employee-button {
+  background: #3030a1;
+  border: 1px solid #fff9ed;
+  color: #fff9ed;
+  border-radius: 20px;
+  padding: 10px;
+  padding-right: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: background-color 0.2s;
+}
+
+.employee-button#edit-button:hover {
+  background: #f36f47;
+}
+
+.employee-button#delete-button:hover {
+  background: #ff669d;
+}
+
+.employee-button#details-button:hover {
+  background: #66ff85;
+}
+
+#employee-button-icon {
+  margin-top: 2px;
+  margin: 2px;
+  margin-right: 5px;
+  margin-left: 5px;
+}

@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FiArrowRight, FiBriefcase, FiPlus } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiBriefcase,
+  FiEdit2,
+  FiPlus,
+  FiTrash,
+} from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
 import Sidebar from "../../../components/Sidebar";
 
@@ -52,28 +58,34 @@ export default function ListAllRoles() {
                       <p>{role.description}</p>
                       <div className="buttons-container">
                         <button
-                          className="edit-role-list-all"
+                          className="role-button"
+                          id="edit-button"
                           onClick={() => {
                             history.push(`/role-edit/${role.id}`);
                           }}
                         >
+                          <FiEdit2 id="role-button-icon" />
                           Editar cargo
                         </button>
 
                         <button
-                          className="see-role-list-all"
+                          className="role-button"
+                          id="details-button"
                           onClick={() => {
                             history.push(`/role/${role.id}`);
                           }}
                         >
-                          + Detalhes
+                          <FiPlus id="role-list-all-button-details" />
+                          <span>Detalhes</span>
                         </button>
                         <button
-                          className="delete-role-list-all"
+                          className="role-button"
+                          id="delete-button"
                           onClick={() => {
                             handlerDeleteARole(role.id);
                           }}
                         >
+                          <FiTrash id="role-button-icon" />
                           Deletar cargo
                         </button>
                       </div>

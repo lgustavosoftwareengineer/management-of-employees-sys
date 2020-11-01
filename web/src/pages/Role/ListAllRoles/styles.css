@@ -59,3 +59,47 @@ div.buttons-container > .see-role-list-all {
   margin: 20px;
   margin-bottom: 50px;
 }
+
+.role-button {
+  background: #3030a1;
+  border: 1px solid #fff9ed;
+  color: #fff9ed;
+  border-radius: 20px;
+  padding: 10px;
+  padding-right: 20px;
+  min-width: 140px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: background-color 0.2s;
+}
+
+.role-button#edit-button:hover {
+  background: #f36f47;
+}
+
+.role-button#delete-button:hover {
+  background: #ff669d;
+}
+
+.role-button#details-button:hover {
+  background: #66ff85;
+}
+
+#role-button-icon {
+  margin-top: 2px;
+  margin: 2px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#details-button span {
+  margin-right: 16px;
+}
+
+#details-button #role-list-all-button-details {
+  margin-left: 12px;
+}
