@@ -52,9 +52,9 @@
    <img src="./.github/screenshot02.png" />
 </p>
 
-# 🔨 Technologies
+# 🔨 Tecnologias
 
-This project was made using the follow technologies:
+Este projeto foi feito usando as seguintes tecnologias:
 
 Frontend
 
@@ -78,7 +78,7 @@ Backend
 
 # 💻 How to run
 
-Fork this repository and clone to your machine. Inside of the project's folder run the following commands:
+Fork este repositório e clone ele na sua máquina. Dentro do folder do projeto, siga os seguintes passos e comandos
 
 ```sh
 # Backend
