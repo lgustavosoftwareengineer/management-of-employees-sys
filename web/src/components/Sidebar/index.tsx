@@ -2,8 +2,6 @@ import React from "react";
 import { FiArrowLeft, FiBriefcase, FiUsers } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 
-import mapMarkerImg from "../../images/logo.png";
-
 import "./styles.css";
 
 interface SidebarProps {

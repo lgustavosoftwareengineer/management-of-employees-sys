@@ -1,8 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Orphanage from "./pages/Orphanage";
-
 import Landing from "./pages/Landing";
 /* GET PAGES */
 import ListAllEmployees from "./pages/Employee/ListAllEmployees";
@@ -55,8 +53,6 @@ function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Landing} />
-        {/* <Route path="/app" component={OrphanagesMap} /> */}
-        <Route path="/orphanage" component={Orphanage} />
 
         <Route path="/employee/create" component={CreateEmployee} />
         <Route path="/employee/:id" component={EmployeeDetails} />
