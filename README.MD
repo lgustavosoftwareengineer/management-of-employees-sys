@@ -34,7 +34,7 @@
   </sub>
 </div>
 
-# 📌 Table of Contents
+# 📌 Tabela de Conteúdo
 
 - [Technologies](#computer-technologies)
 - [How to run](#construction_worker-how-to-run)
