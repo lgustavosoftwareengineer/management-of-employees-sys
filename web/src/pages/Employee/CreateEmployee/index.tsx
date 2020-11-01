@@ -50,10 +50,10 @@ export default function CreateEmployee() {
   }, [roles]);
 
   return (
-    <div id="page-create-orphanage">
-      <Sidebar />
+    <div id="page-create-role">
+      <Sidebar page="employee" />
       <main>
-        <form onSubmit={handleSubmit} className="create-orphanage-form">
+        <form onSubmit={handleSubmit} className="create-role-form">
           <fieldset>
             <legend>Crie um funcionário</legend>
 

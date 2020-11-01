@@ -6,6 +6,7 @@ import { useHistory, useParams } from "react-router-dom";
 import "./styles.css";
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
+import { FiUser } from "react-icons/fi";
 
 interface Employee {
   id: number;
@@ -44,20 +45,25 @@ export default function EmployeeDetail() {
   }, [employee, role]);
 
   return (
-    <div id="page-create-orphanage">
-      <Sidebar />
+    <div id="page-create-role">
+      <Sidebar page="employee" />
+
       <main>
-        <form className="create-orphanage-form">
+        <form className="create-role-form">
           <fieldset>
             {employee ? (
               <div key={employee.id}>
-                <legend>
-                  {employee.name} {employee.last_name}
-                </legend>
+                <div className="title" id="title-employee">
+                  <FiUser size={50} color="#0aa8ad" id="employee-icon" />
+                  <legend>
+                    {employee.name} {employee.last_name}
+                  </legend>
+                </div>
 
                 <p> Cargo: {employee.role}</p>
                 <p>Salário: R$ {employee.salary}</p>
                 <button
+                  className="edit-role"
                   onClick={() => {
                     history.push(`/employee-edit/${employee.id}`);
                   }}

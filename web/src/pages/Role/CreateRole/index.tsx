@@ -32,10 +32,10 @@ export default function CreateRole() {
   }
 
   return (
-    <div id="page-create-orphanage">
+    <div id="page-create-role">
       <Sidebar />
       <main>
-        <form onSubmit={handleSubmit} className="create-orphanage-form">
+        <form onSubmit={handleSubmit} className="create-role-form">
           <fieldset>
             <legend>Crie um cargo</legend>
 
@@ -77,7 +77,7 @@ export default function CreateRole() {
             </div>
           </fieldset>
 
-          <button className="confirm-button" type="submit">
+          <button className="confirm-button" id="create-role" type="submit">
             Confirmar
           </button>
         </form>

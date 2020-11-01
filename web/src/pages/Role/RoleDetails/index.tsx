@@ -1,9 +1,11 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { FiFileText } from "react-icons/fi";
 import { useHistory, useParams } from "react-router-dom";
 
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
 
+import "./styles.css";
 interface Role {
   id: number;
   name: string;
@@ -30,23 +32,27 @@ export default function RoleDetails() {
     return <p>Carregando ...</p>;
   }
   return (
-    <div id="page-create-orphanage">
+    <div id="page-create-role">
       <Sidebar />
       <main>
-        <form className="create-orphanage-form">
+        <form className="create-role-form">
           <fieldset>
             {role ? (
               <div key={role.id}>
-                <legend>{role.name}</legend>
+                <div className="title" id="title-role">
+                  <FiFileText size={50} color="#0aa8ad" id="role-icon" />
+                  <legend>{role.name}</legend>
+                </div>
 
                 <p> {role.description}</p>
 
                 <button
+                  className="edit-role"
                   onClick={() => {
                     history.push(`/role-edit/${role.id}`);
                   }}
                 >
-                  Editar role
+                  Editar cargo
                 </button>
               </div>
             ) : (

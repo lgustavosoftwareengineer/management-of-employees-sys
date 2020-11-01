@@ -1,8 +1,11 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { FiUser } from "react-icons/fi";
 import { useHistory, useParams } from "react-router-dom";
 
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
+
+import "./styles.css";
 
 interface Employee {
   id: number;
@@ -74,12 +77,16 @@ export default function EditEmployee() {
   }
 
   return (
-    <div id="page-create-orphanage">
-      <Sidebar />
+    <div id="page-create-role">
+      <Sidebar page="employee" />
+
       <main>
-        <form onSubmit={handleSubmit} className="create-orphanage-form">
+        <form onSubmit={handleSubmit} className="create-role-form">
           <fieldset>
-            <legend>Edite os dados do seu funcionário</legend>
+            <div className="title" id="title-employee">
+              <FiUser size={50} color="#0aa8ad" id="employee-icon-edit" />
+              <legend>Edite os dados do seu funcionário</legend>
+            </div>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
@@ -162,7 +169,7 @@ export default function EditEmployee() {
             </div>
           </div>
 
-          <button className="confirm-button" type="submit">
+          <button className="confirm-button" id="edit-role" type="submit">
             Confirmar
           </button>
         </form>

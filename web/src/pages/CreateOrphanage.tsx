@@ -69,10 +69,10 @@ export default function CreateOrphanage() {
   // }
 
   return (
-    <div id="page-create-orphanage">
+    <div id="page-create-role">
       <Sidebar />
       <main>
-        <form onSubmit={handleSubmit} className="create-orphanage-form">
+        <form onSubmit={handleSubmit} className="create-role-form">
           <fieldset>
             <legend>Dados</legend>
 

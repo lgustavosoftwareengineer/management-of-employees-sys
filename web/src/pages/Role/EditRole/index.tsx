@@ -1,8 +1,11 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { FiFileText } from "react-icons/fi";
 import { useHistory, useParams } from "react-router-dom";
 
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
+
+import "./styles.css";
 
 interface Role {
   id: number;
@@ -51,12 +54,15 @@ export default function EditRole() {
   }
 
   return (
-    <div id="page-create-orphanage">
+    <div id="page-create-role">
       <Sidebar />
       <main>
-        <form className="create-orphanage-form" onSubmit={handleSubmit}>
+        <form className="create-role-form" onSubmit={handleSubmit}>
           <fieldset>
-            <legend>Edite um cargo</legend>
+            <div className="title" id="title-role">
+              <FiFileText size={50} color="#0aa8ad" id="role-icon" />
+              <legend>Edite um cargo</legend>
+            </div>
 
             {/* <Map
               center={[-8.6798175, -35.5844157]}
@@ -98,7 +104,7 @@ export default function EditRole() {
             </div>
           </fieldset>
 
-          <button className="confirm-button" type="submit">
+          <button className="confirm-button" id="edit-role" type="submit">
             Confirmar
           </button>
         </form>

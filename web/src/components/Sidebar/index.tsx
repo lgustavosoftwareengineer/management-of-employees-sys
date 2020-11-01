@@ -6,23 +6,53 @@ import mapMarkerImg from "../../images/logo.png";
 
 import "./styles.css";
 
-export default function Sidebar() {
-  const { goBack, push } = useHistory();
+interface SidebarProps {
+  page?: string;
+}
 
-  return (
-    <aside className="app-sidebar">
-      {/* <img src={mapMarkerImg} alt="wallet" width="64" /> */}
-      <button type="button" onClick={() => push("/roles/")}>
-        <FiBriefcase size={24} color="#FFF" />
-      </button>
-      <button type="button" onClick={() => push("/employees/")}>
-        <FiUsers size={24} color="#FFF" />
-      </button>
-      <footer>
-        <button type="button" onClick={goBack}>
-          <FiArrowLeft size={24} color="#FFF" />
+export default function Sidebar({ page = "role" }: SidebarProps) {
+  const { goBack, push } = useHistory();
+  if (page === "employee") {
+    return (
+      <aside className="app-sidebar">
+        {/* <img src={mapMarkerImg} alt="wallet" width="64" /> */}
+        <button type="button" onClick={() => push("/roles/")}>
+          <FiBriefcase size={24} color="#FFF" />
         </button>
-      </footer>
-    </aside>
-  );
+        <button
+          type="button"
+          onClick={() => push("/employees/")}
+          style={{ backgroundColor: "#0aa8ad" }}
+        >
+          <FiUsers size={24} color="#FFF" />
+        </button>
+        <footer>
+          <button type="button" onClick={goBack}>
+            <FiArrowLeft size={24} color="#FFF" />
+          </button>
+        </footer>
+      </aside>
+    );
+  } else {
+    return (
+      <aside className="app-sidebar">
+        {/* <img src={mapMarkerImg} alt="wallet" width="64" /> */}
+        <button
+          type="button"
+          onClick={() => push("/roles/")}
+          style={{ backgroundColor: "#0aa8ad" }}
+        >
+          <FiBriefcase size={24} color="#FFF" />
+        </button>
+        <button type="button" onClick={() => push("/employees/")}>
+          <FiUsers size={24} color="#FFF" />
+        </button>
+        <footer>
+          <button type="button" onClick={goBack}>
+            <FiArrowLeft size={24} color="#FFF" />
+          </button>
+        </footer>
+      </aside>
+    );
+  }
 }

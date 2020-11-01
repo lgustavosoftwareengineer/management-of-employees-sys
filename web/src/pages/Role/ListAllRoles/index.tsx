@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FiArrowRight, FiPlus } from "react-icons/fi";
+import { FiArrowRight, FiBriefcase, FiPlus } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
 import Sidebar from "../../../components/Sidebar";
 
@@ -29,43 +29,54 @@ export default function ListAllRoles() {
   }, [roles]);
 
   return (
-    <div id="page-create-orphanage">
+    <div id="page-create-role">
       <Sidebar />
-      <main>
-        <form className="create-orphanage-form">
+
+      <main id="list-all-roles">
+        <form className="create-role-form">
           <fieldset>
-            <legend>Aqui está a lista dos cargos da sua empresa</legend>
+            <div className="title">
+              <FiBriefcase size={50} color="#0aa8ad" id="icon" />
+              <legend>
+                Seja bem-vindo(a)! Aqui está a lista dos cargos da sua empresa
+              </legend>
+            </div>
 
             {!(roles === undefined || roles === null || roles.length === 0) ? (
               roles?.map((role) => {
                 return (
                   <>
-                    <div key={role.id}>
+                    <div key={role.id} className="role-content">
                       <h1>{role.name}</h1>
 
                       <p>{role.description}</p>
-                      <button
-                        onClick={() => {
-                          history.push(`/role-edit/${role.id}`);
-                        }}
-                      >
-                        Editar cargo
-                      </button>
+                      <div className="buttons-container">
+                        <button
+                          className="edit-role-list-all"
+                          onClick={() => {
+                            history.push(`/role-edit/${role.id}`);
+                          }}
+                        >
+                          Editar cargo
+                        </button>
 
-                      <button
-                        onClick={() => {
-                          history.push(`/role/${role.id}`);
-                        }}
-                      >
-                        Ver detalhes do cargo
-                      </button>
-                      <button
-                        onClick={() => {
-                          handlerDeleteARole(role.id);
-                        }}
-                      >
-                        Deletar cargo
-                      </button>
+                        <button
+                          className="see-role-list-all"
+                          onClick={() => {
+                            history.push(`/role/${role.id}`);
+                          }}
+                        >
+                          + Detalhes
+                        </button>
+                        <button
+                          className="delete-role-list-all"
+                          onClick={() => {
+                            handlerDeleteARole(role.id);
+                          }}
+                        >
+                          Deletar cargo
+                        </button>
+                      </div>
                     </div>
                   </>
                 );
