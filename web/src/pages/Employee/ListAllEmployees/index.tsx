@@ -15,7 +15,9 @@ import {
   FiUsers,
   FiUser,
   FiPaperclip,
+  FiHome,
 } from "react-icons/fi";
+import Loading from "../../../components/Loading";
 
 interface Employee {
   id: number;
@@ -53,11 +55,15 @@ export default function ListAllEmployees() {
       setRoles(response.data.data.role);
     });
 
-    setLoading(true);
+    return () => setLoading(true);
   }, [employees]);
 
   async function handlerDeleteEmployee(id: number) {
     await api.delete(`employees/v1/${id}`);
+  }
+
+  if (!employees) {
+    return <Loading />;
   }
 
   return (
@@ -71,8 +77,8 @@ export default function ListAllEmployees() {
               <div className="title">
                 <FiUsers size={50} color="#0aa8ad" id="icon" />
                 <legend>
-                  Seja bem-vindo(a) {company?.name}! Aqui está a lista dos
-                  funcionários da sua empresa
+                  Seja bem-vindo(a), {company?.name}! Aqui está a lista dos
+                  funcionários da {company.companyName}
                 </legend>
               </div>
 
@@ -89,11 +95,24 @@ export default function ListAllEmployees() {
                           {employee.name} {employee.last_name}
                         </h1>
 
-                        <p>Salário: R$ {employee.salary}</p>
+                        <p>
+                          Salário:{" "}
+                          <span style={{ color: "#7e7d7d" }}>
+                            R$ {employee.salary}
+                          </span>{" "}
+                        </p>
 
                         {roles?.map((role) => {
                           if (role.id === employee.role_id) {
-                            return <p> Cargo: {role.name}</p>;
+                            return (
+                              <p>
+                                {" "}
+                                Cargo:{" "}
+                                <span style={{ color: "#7e7d7d" }}>
+                                  {role.name}
+                                </span>
+                              </p>
+                            );
                           }
                           return <div></div>;
                         })}
@@ -148,13 +167,13 @@ export default function ListAllEmployees() {
           </form>
         </main>
 
-        <div id="company-data">
+        <div id="company-data" onClick={() => history.push("/")}>
           <div id="company-content">
             <FiUser id="company-icon" />
             <p>{company.name}</p>
           </div>
           <div id="company-content">
-            <FiPaperclip id="company-icon" />
+            <FiHome id="company-icon" />
             <p>{company.companyName}</p>
           </div>
         </div>

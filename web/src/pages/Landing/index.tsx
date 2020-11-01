@@ -74,7 +74,7 @@ function Landing() {
               <div className="input-block">
                 <label htmlFor="name">Empresa</label>
                 <input
-                  id="name"
+                  id="company"
                   placeholder="Qual o nome da sua empresa?"
                   value={companyName}
                   onChange={(event) => setCompanyName(event.target.value)}

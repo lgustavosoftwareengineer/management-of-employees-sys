@@ -1,5 +1,6 @@
 import React, { FormEvent, useEffect, useState } from "react";
 import { FiUser } from "react-icons/fi";
+import { BsFillPersonLinesFill } from "react-icons/bs";
 import { useHistory, useParams } from "react-router-dom";
 
 import Sidebar from "../../../components/Sidebar";
@@ -84,8 +85,13 @@ export default function EditEmployee() {
         <form onSubmit={handleSubmit} className="create-role-form">
           <fieldset>
             <div className="title" id="title-employee">
-              <FiUser size={50} color="#0aa8ad" id="employee-icon-edit" />
-              <legend>Edite os dados do seu funcionário</legend>
+              <BsFillPersonLinesFill
+                size={50}
+                color="#0aa8ad"
+                id="employee-icon-edit"
+                style={{ marginRight: 15, marginTop: -5 }}
+              />
+              <legend>Edite um funcionário</legend>
             </div>
 
             <div className="input-block">

@@ -45,15 +45,6 @@ div.buttons-container > .delete-role-list-all {
   border-radius: 20px;
   padding: 7px;
 }
-
-div.buttons-container > .edit-role-list-all {
-  background: linear-gradient(154.16deg, #fff9ed 7.85%, #ffffff 91.03%);
-  border: 1px solid #f36f47;
-  color: #ffa866;
-  border-radius: 20px;
-  padding: 7px;
-}
-
 div.buttons-container > .see-role-list-all {
   background: linear-gradient(154.16deg, #edfff6 7.85%, #ffffff 91.03%);
   border: 1px solid #bcffc4;
@@ -114,7 +105,7 @@ div.buttons-container > .see-role-list-all {
   background: #3030a1;
   height: 100px;
   width: 200px;
-  position: absolute;
+  position: fixed;
   border-bottom-left-radius: 20px;
   top: 0px;
   right: 0px;
@@ -123,6 +114,11 @@ div.buttons-container > .see-role-list-all {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+}
+
+#company-data:hover {
+  background: #0aa8ad;
+  cursor: pointer;
 }
 
 #company-data #company-content {
@@ -137,4 +133,10 @@ div.buttons-container > .see-role-list-all {
 
 #company-data #company-content p {
   color: #fff;
+}
+
+p {
+  font-size: 20px;
+  color: #5c8599;
+  font-weight: 500;
 }

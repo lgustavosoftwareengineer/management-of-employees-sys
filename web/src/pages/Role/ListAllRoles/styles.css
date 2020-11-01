@@ -108,7 +108,7 @@ div.buttons-container > .see-role-list-all {
   background: #3030a1;
   height: 100px;
   width: 200px;
-  position: absolute;
+  position: fixed;
   border-bottom-left-radius: 20px;
   top: 0px;
   right: 0px;
@@ -117,6 +117,11 @@ div.buttons-container > .see-role-list-all {
   flex-direction: column;
   justify-content: center;
   padding: 20px;
+}
+
+#company-data:hover {
+  background: #0aa8ad;
+  cursor: pointer;
 }
 
 #company-data #company-content {
@@ -131,4 +136,8 @@ div.buttons-container > .see-role-list-all {
 
 #company-data #company-content p {
   color: #fff;
+}
+
+.role-content h1#role-name {
+  color: #0aa8ad;
 }

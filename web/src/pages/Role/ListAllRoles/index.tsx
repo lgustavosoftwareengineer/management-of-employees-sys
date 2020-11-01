@@ -3,12 +3,14 @@ import {
   FiArrowRight,
   FiBriefcase,
   FiEdit2,
+  FiHome,
   FiPaperclip,
   FiPlus,
   FiTrash,
   FiUser,
 } from "react-icons/fi";
 import { Link, useHistory } from "react-router-dom";
+import Loading from "../../../components/Loading";
 import Sidebar from "../../../components/Sidebar";
 
 import api from "../../../services/api";
@@ -22,7 +24,7 @@ interface Role {
 }
 
 export default function ListAllRoles() {
-  const [roles, setRoles] = useState<Role[]>([]);
+  const [roles, setRoles] = useState<Role[]>();
   const [company, setCompany] = useState<any>(
     JSON.parse(String(localStorage.getItem("CompanyData")))
   );
@@ -39,6 +41,10 @@ export default function ListAllRoles() {
     });
   }, [roles]);
 
+  if (!roles) {
+    return <Loading />;
+  }
+
   return (
     <div id="page-create-role">
       <Sidebar />
@@ -49,7 +55,8 @@ export default function ListAllRoles() {
             <div className="title">
               <FiBriefcase size={50} color="#0aa8ad" id="icon" />
               <legend>
-                Seja bem-vindo(a)! Aqui está a lista dos cargos da sua empresa
+                Seja bem-vindo(a), {company.name}! Aqui está a lista dos cargos
+                da {company.companyName}
               </legend>
             </div>
 
@@ -58,9 +65,14 @@ export default function ListAllRoles() {
                 return (
                   <>
                     <div key={role.id} className="role-content">
-                      <h1>{role.name}</h1>
+                      <h1 id="role-name">{role.name}</h1>
 
-                      <p>{role.description}</p>
+                      <p style={{ color: "#5c8599" }}>
+                        Descripção:
+                        <span style={{ color: "#7e7d7d", marginLeft: 5 }}>
+                          {role.description}
+                        </span>
+                      </p>
                       <div className="buttons-container">
                         <button
                           className="role-button"
@@ -111,13 +123,13 @@ export default function ListAllRoles() {
           </button>
         </form>
       </main>
-      <div id="company-data">
+      <div id="company-data" onClick={() => history.push("/")}>
         <div id="company-content">
           <FiUser id="company-icon" />
           <p>{company.name}</p>
         </div>
         <div id="company-content">
-          <FiPaperclip id="company-icon" />
+          <FiHome id="company-icon" />
           <p>{company.companyName}</p>
         </div>
       </div>
