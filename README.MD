@@ -48,6 +48,9 @@
 <p align="center">
    <img src="./.github/screenshot01.png" />
 </p>
+<p align="center">
+   <img src="./.github/screenshot02.png" />
+</p>
 
 # 🔨 Technologies
 
