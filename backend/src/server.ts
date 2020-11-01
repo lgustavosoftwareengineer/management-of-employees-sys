@@ -17,5 +17,6 @@ app.use(routes);
 app.use(errorHandler);
 
 app.listen(1919, () => {
-  console.log("The server is running!");
+  console.log("Run Barry, run!!");
+  console.log("Servidor rodando na porta 1919 do seu localhost!");
 });
