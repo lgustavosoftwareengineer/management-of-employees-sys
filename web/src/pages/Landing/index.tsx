@@ -27,13 +27,15 @@ function Landing() {
     <div id="page-landing">
       <div className="content-wrapper">
         <main>
-          <h1>
+          <h1 style={{ color: "#fff" }}>
             <span>Seja bem-vindo(a) </span> ao Employee Management
           </h1>
           <div className="content-enter-app">
-            <p>Quer gerenciar os seus funcionários?</p>
+            <p style={{ color: "#fff" }}>
+              Quer gerenciar os seus funcionários?
+            </p>
             <div className="enter-app">
-              <FiArrowRight size={26} color={"rgba(0,0,0, 0.6 )"} />
+              <FiArrowRight size={26} color={"#fff"} />
             </div>
           </div>
 

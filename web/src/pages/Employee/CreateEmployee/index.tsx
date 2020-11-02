@@ -21,7 +21,6 @@ export default function CreateEmployee() {
   const [role_id, setRoleId] = useState<number>(0);
   const [birth_date, setBirthDate] = useState<string>();
   const [salary, setSalary] = useState<number>();
-
   const [roles, setRoles] = useState<Role[]>([]);
 
   // /** HANDLERS */
@@ -36,6 +35,7 @@ export default function CreateEmployee() {
       alert("Algum campo está faltando");
     } else {
       await api.post("employees/v1", data);
+      localStorage.setItem("employeeInLocalStorage", JSON.stringify(data));
 
       alert("Cadastro realizado com sucesso!");
 

@@ -18,12 +18,14 @@ export default function CreateRole() {
     event.preventDefault();
 
     const data = { name, description };
-    console.log(data);
 
     if (!(name && description) || !(name || description)) {
       alert("Preencha os campos");
     }
-
+    const role = localStorage.setItem(
+      "roleInLocalStorage",
+      JSON.stringify(data)
+    );
     await api.post("roles/v1/", data);
 
     alert('Cadastro realizado com sucesso"');
@@ -38,26 +40,6 @@ export default function CreateRole() {
         <form onSubmit={handleSubmit} className="create-role-form">
           <fieldset>
             <legend>Crie um cargo</legend>
-
-            {/* <Map
-              center={[-8.6798175, -35.5844157]}
-              style={{ width: "100%", height: 280 }}
-              zoom={15}
-              onClick={handleMapClick}
-            >
-              <TileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-
-              {position.latitude !== 0 && (
-                <Marker
-                  interactive={false}
-                  icon={mapIcon}
-                  position={[position.latitude, position.longitude]}
-                />
-              )}
-
-              
-            </Map> */}
-
             <div className="input-block">
               <label htmlFor="name">Nome do cargo</label>
               <input
