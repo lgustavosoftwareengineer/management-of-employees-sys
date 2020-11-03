@@ -92,10 +92,10 @@ Fork este repositório e clone ele na sua máquina. Dentro do folder do projeto,
 $ cd backend/
 
 # Instale as dependências
-$ yarn
+$ yarn # ou npm install
 
 # Depois das dependências instaladas, rode o server
-$ yarn server
+$ yarn server # ou npm run server
 
 # Frontend
 # PS: IMPORTANTE ABRIR OUTRO TERMINAL PARA RODAR A APLICAÇÃO WEB
@@ -107,10 +107,10 @@ $ cd ../
 $ cd web/
 
 # Instale as dependências
-$ yarn
+$ yarn # ou npm install
 
 # Rode a aplicação web
-$ yarn start
+$ yarn start # ou npm run start
 ```
 
 # 🧐 PS
