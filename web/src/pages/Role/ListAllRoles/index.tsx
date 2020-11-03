@@ -67,7 +67,7 @@ export default function ListAllRoles() {
                       <h1 id="role-name">{role.name}</h1>
 
                       <p style={{ color: "#5c8599" }}>
-                        Descripção:
+                        Descrição:
                         <span style={{ color: "#7e7d7d", marginLeft: 5 }}>
                           {role.description}
                         </span>
