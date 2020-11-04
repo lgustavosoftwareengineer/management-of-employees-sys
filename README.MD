@@ -71,7 +71,7 @@ Frontend
 - [Typescript](https://www.typescriptlang.org)
 - [ESLint](https://www.npmjs.com/package/eslint)
 - [Prettier](https://www.npmjs.com/package/eslint)
-- [Axios]()
+- [Axios](https://github.com/axios/axios)
 
 Backend
 
