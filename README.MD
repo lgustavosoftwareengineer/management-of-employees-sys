@@ -70,7 +70,7 @@ Frontend
 - [React Router DOM](https://styled-components.com)
 - [Typescript](https://www.typescriptlang.org)
 - [ESLint](https://www.npmjs.com/package/eslint)
-- [Prettier](https://www.npmjs.com/package/eslint)
+- [Prettier](https://prettier.io/)
 - [Axios](https://github.com/axios/axios)
 
 Backend
