@@ -1,6 +1,5 @@
 /* eslint-disable camelcase */
-import { Column, Entity, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
-import Role from "./Role";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("employees")
 class Employee {
