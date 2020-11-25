@@ -1,8 +1,6 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 
-// import { FiPlus } from "react-icons/fi";
-
 import "./styles.css";
 import Sidebar from "../../../components/Sidebar";
 import api from "../../../services/api";
@@ -32,7 +30,7 @@ export default function EmployeeDetail() {
   const params = useParams<EmployeeParams>();
 
   const [employee, setEmployee] = useState<Employee>();
-  const [role, setRole] = useState<Role>();
+  const [role] = useState<Role>();
   const [loading, setLoading] = useState(false);
 
   // /** HANDLERS */
@@ -60,7 +58,7 @@ export default function EmployeeDetail() {
                   </legend>
                 </div>
 
-                <p> Cargo: {employee.role}</p>
+                <p>Cargo: {employee.role}</p>
                 <p>Salário: R$ {employee.salary}</p>
                 <button
                   className="edit-role"
@@ -80,5 +78,3 @@ export default function EmployeeDetail() {
     </div>
   );
 }
-
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;

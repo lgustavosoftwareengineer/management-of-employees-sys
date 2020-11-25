@@ -28,7 +28,7 @@ export default function CreateRole() {
     );
     await api.post("roles/v1/", data);
 
-    alert('Cadastro realizado com sucesso"');
+    alert("Cadastro realizado com sucesso");
 
     history.push("/roles");
   }
