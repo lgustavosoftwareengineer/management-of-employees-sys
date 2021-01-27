@@ -1,0 +1,128 @@
+#page-landing {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(329.54deg, #3030a1 0%, #3030a1 100%);
+  /* background: url("../../images/landing.jpg") fixed center; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: url("../../images/landing.jpg") fixed center; */
+}
+
+#page-landing .content-wrapper {
+  position: relative;
+
+  width: 50%;
+  max-width: 1100px;
+
+  height: 100%;
+  max-height: 600px;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#page-landing .content-wrapper main {
+  max-width: 350px;
+  margin-left: 100px;
+  margin-top: 100px;
+  margin-bottom: 80px;
+}
+
+#page-landing .content-wrapper main h1 {
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 70px;
+}
+
+#page-landing .content-wrapper main h1 span {
+  font-size: 50px;
+  font-weight: 900;
+  line-height: 70px;
+  color: #0aa8ad;
+}
+
+#page-landing .content-wrapper main p {
+  margin-top: 20px;
+  font-size: 24px;
+  line-height: 34px;
+  color: #4d6f80;
+}
+
+.content-wrapper .location {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  font-size: 24px;
+  line-height: 34px;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: right;
+}
+
+.content-wrapper .location strong {
+  font-weight: 800;
+}
+
+.content-wrapper .enter-app {
+  width: 80px;
+  height: 80px;
+  background: #0aa8ad;
+  border-radius: 30px;
+
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.2s;
+}
+
+.content-enter-app {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+
+  margin-top: 30px;
+  margin-left: -30px;
+}
+
+.content-enter-app p {
+  margin-left: 30px;
+}
+
+.image-wrapper {
+  margin-right: 100px;
+  background-color: red;
+  width: 50%;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.image-wrapper img {
+  transition: transform 0.25s ease;
+}
+
+.image-wrapper img:hover {
+  -webkit-transform: scale(1.06); /* or some other value */
+  transform: scale(1.08);
+
+  -webkit-filter: blur(0);
+  -moz-filter: blur(0);
+  -o-filter: blur(0);
+  -ms-filter: blur(0);
+  filter: blur(0);
+}

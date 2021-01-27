@@ -1,0 +1,19 @@
+.loading {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0.8;
+}
+
+.loading p {
+  font-size: 32px;
+  line-height: 34px;
+  color: #5c8599;
+  font-weight: 700;
+}

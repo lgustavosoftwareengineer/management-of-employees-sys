@@ -1,0 +1,142 @@
+div.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#icon {
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  justify-self: center;
+}
+
+button.confirm-button#list-all-roles {
+  margin-top: 64px;
+
+  width: 100%;
+  height: 64px;
+  border: 0;
+  cursor: pointer;
+  background: #3030a1;
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: 800;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background-color 0.2s;
+}
+
+button.confirm-button svg {
+  margin-right: 16px;
+}
+
+button.confirm-button#list-all-roles:hover {
+  background: #0aa8ad;
+}
+
+div.buttons-container > .delete-role-list-all {
+  background: linear-gradient(154.16deg, #efedff 7.85%, #ffffff 91.03%);
+  border: 1px solid #ffbcd4;
+  color: #ff669d;
+  border-radius: 20px;
+  padding: 7px;
+}
+div.buttons-container > .see-role-list-all {
+  background: linear-gradient(154.16deg, #edfff6 7.85%, #ffffff 91.03%);
+  border: 1px solid #bcffc4;
+  color: #66ff85;
+  border-radius: 20px;
+  padding: 7px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.role-content {
+  margin: 20px;
+  margin-bottom: 50px;
+  padding-bottom: 20px;
+  border-bottom: #d3e2e5 solid 1px;
+}
+
+.employee-button {
+  background: #3030a1;
+  border: 1px solid #fff9ed;
+  color: #fff9ed;
+  border-radius: 20px;
+  padding: 10px;
+  padding-right: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: background-color 0.2s;
+}
+
+.employee-button#edit-button:hover {
+  background: #f36f47;
+}
+
+.employee-button#delete-button:hover {
+  background: #ff669d;
+}
+
+.employee-button#details-button:hover {
+  background: #66ff85;
+}
+
+#employee-button-icon {
+  margin-top: 2px;
+  margin: 2px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+#company-data {
+  background: #3030a1;
+  height: 100px;
+  width: 200px;
+  position: fixed;
+  border-bottom-left-radius: 20px;
+  top: 0px;
+  right: 0px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#company-data:hover {
+  background: #0aa8ad;
+  cursor: pointer;
+}
+
+#company-data #company-content {
+  display: flex;
+  padding-bottom: 4px;
+}
+
+#company-data #company-content #company-icon {
+  margin-right: 7px;
+  color: #fff;
+}
+
+#company-data #company-content p {
+  color: #fff;
+  font-size: 16px;
+}
+
+p {
+  font-size: 20px;
+  color: #5c8599;
+  font-weight: 500;
+}
