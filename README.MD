@@ -36,8 +36,8 @@
 
 # 📌 Tabela de Conteúdo
 
-- [Technologies](#computer-technologies)
-- [How to run](#construction_worker-how-to-run)
+- [Tecnologias](#computer-technologies)
+- [Como rodar o projeto](#construction_worker-how-to-run)
 - [PS](#monocle_face-ps)
 
 ### 📸 Screenshots
@@ -83,7 +83,7 @@ Backend
 - [Yup](https://github.com/jquense/yup)
 - [Moment](https://momentjs.com/)
 
-# 💻 How to run
+# 💻 Como rodar o projeto
 
 Fork este repositório e clone ele na sua máquina. Dentro do folder do projeto, siga os seguintes passos e comandos
 
@@ -118,6 +118,6 @@ $ yarn start # ou npm run start
 Se você quiser usar as configurações do ESLint e Prettier siga o tutorial desse site:
 [Link](https://dev.to/christiantld/configurando-um-projeto-react-com-typescript-3kg)
 
-# ✌ Made with 💙 by [Luiz Gustavo](https://github.com/tonicprism/)
+# ✌ Feito com 💙 por [Luiz Gustavo](https://github.com/tonicprism/)
 
-Give a ⭐️ if this project helped you!
+Dê uma ⭐️ se esse projeto ajudou você!
